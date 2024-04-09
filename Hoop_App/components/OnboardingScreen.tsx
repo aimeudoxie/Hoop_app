@@ -93,12 +93,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F43939',
   },
   container: {
-    height:'90%',
+    height:'100%',
     width:'100%',
     display: 'flex',
     backgroundColor: '#EAEAF3',
     alignItems: 'center',
     paddingTop: '16%',
+    paddingBottom:'20%'
    
   },
   

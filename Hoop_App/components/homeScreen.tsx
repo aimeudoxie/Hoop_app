@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         gap:15,
         padding:10,
-        paddingTop:15,
+        paddingTop:20,
         
     },
     categorytitle:{
