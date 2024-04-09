@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Link } from "expo-router";
+import Login from './logins/login';
 
 export default function Home() {
   
@@ -17,13 +19,13 @@ export default function Home() {
         <View style={styles.login}>
         <Image
         source={require('../assets/Message.png')}  />
-        <Text style={styles.email}> Login with Email</Text>
-
+        <Link href="./logins/login" style={styles.email}> Login with Email</Link>
+        
         </View>
         <View style={styles.phonelogin}>
         <Image
         source={require('../assets/phone.png')}  />
-        <Text style={styles.phone}> Login with Phone</Text>
+        <Link href="/(logins)/phone-login" style={styles.phone}> Login with Phone</Link> 
         </View>
         <View style={styles.bottomtext}>
         <Text style={styles.bottomtext1}> Don't have an account?</Text>
