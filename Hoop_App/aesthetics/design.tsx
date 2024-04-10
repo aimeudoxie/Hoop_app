@@ -1,14 +1,17 @@
 import Colors from "./Colors";
 import Sizes from "./Sizes";
 import {
-  Link as DefaultLink,
-  LinkProps as DefaultLinkProps,
-} from "expo-router";
-import {
-  TextProps as DefaltTextProps,
+  TextProps as DefaultTextProps,
   Text as DefaultText,
   useColorScheme,
 } from "react-native";
+
+// Define a custom LinkProps type
+type LinkProps = {
+  lightColor?: string;
+  darkColor?: string;
+  href: string; // Adjust href type as needed
+} & DefaultTextProps;
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -22,22 +25,13 @@ export function useThemeColor(
     return Colors[theme][colorName];
   }
 }
-type ThemeProps = {
-  lightColor?: string;
-  darkColor?: string;
-};
 
-export type TextProps = ThemeProps & DefaltTextProps;
-export type LinkProps = ThemeProps & DefaultLinkProps<string>;
-
-export function Text(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+export function Text(props: DefaultTextProps) {
+  const { style, ...otherProps } = props;
   return (
     <DefaultText
       style={[
         {
-          color,
           fontSize: Sizes.md,
           fontFamily: "Avenir",
           fontWeight: "500",
@@ -56,9 +50,18 @@ export function Link(props: LinkProps) {
     "text"
   );
   return (
-    <DefaultLink
-      href={href}
-      style={[{ color, fontFamily: "Avenir" }, style]}
+    <DefaultText
+      onPress={() => {
+        /* Handle link press */
+      }}
+      style={[
+        {
+          color,
+          fontFamily: "Avenir",
+          // Add other styles as needed
+        },
+        style,
+      ]}
       {...otherProps}
     />
   );
