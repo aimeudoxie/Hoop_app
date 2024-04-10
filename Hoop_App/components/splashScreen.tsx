@@ -1,7 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts as useFontsExpo } from 'expo-font';
 
 export default function Splash() {
+  const [fontsLoaded] = useFontsExpo({ 
+    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+  });
+  if (!fontsLoaded) {
+    return null; 
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hoop</Text> 

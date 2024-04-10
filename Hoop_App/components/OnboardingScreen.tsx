@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import Swiper from 'react-native-swiper'; 
+import { useFonts as useFontsExpo } from 'expo-font';
 
 export default function Onboarding() {
   
@@ -32,6 +33,14 @@ export default function Onboarding() {
       subtitle: 'Find your perfect parking space wherever and whenever you need',
     },
   ];
+  const [fontsLoaded] = useFontsExpo({ 
+    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+  });
+  if (!fontsLoaded) {
+    return null; 
+  }
 
   return (
     <View style={styles.container}>

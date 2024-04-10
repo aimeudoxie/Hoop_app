@@ -1,9 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput } from 'react-native';
+import { useFonts as useFontsExpo } from 'expo-font';
 
 export default function Home() {
     const [text, setText] = useState('');
+    const [fontsLoaded] = useFontsExpo({ 
+        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+      });
+      if (!fontsLoaded) {
+        return null; 
+      }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -103,9 +112,8 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     spaceimage:{
-        width:120,
-        height:120,
-        borderRadius:20
+        width:98,
+        height:104,
     },
     spacetitle:{
         fontSize:18,
@@ -130,13 +138,14 @@ const styles = StyleSheet.create({
         
     },
     categorytitle:{
-        fontSize:22,
-        fontFamily:'Avenir'
+        fontSize:20,
+        fontFamily:'Avenirroman',
+        
     },
     categorysubtitle:{
         fontSize:14,
         fontWeight:'500',
-        fontFamily:'Avenir',
+        fontFamily:'Avenirroman',
         lineHeight:30,
         color:'#2D2D2D'
     },
@@ -164,7 +173,7 @@ const styles = StyleSheet.create({
         marginLeft:30, 
         marginRight:30, 
         padding:15,
-        borderRadius:20
+        borderRadius:15
     },
     h1:{
         fontFamily:'Avenir',
