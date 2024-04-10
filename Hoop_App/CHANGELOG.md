@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/aimeudoxie/Hoop_app/compare/v1.1.0...v1.2.0) (2024-04-10)
+
+
+### Features
+
+* Add a Readme to the Repo ([04b6cfa](https://github.com/aimeudoxie/Hoop_app/commit/04b6cfaa8b5e11550fe16e7b3159ad3a68571757))
+
 ## 1.1.0 (2024-04-10)
 
 
