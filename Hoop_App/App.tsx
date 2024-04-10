@@ -8,6 +8,6 @@ import PhoneLogin from './components/logins/LoginWithPhone';
 
 export default function App() {
   return (
-   <Splash/> 
+   <Home/> 
   );
 }
