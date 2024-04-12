@@ -4,8 +4,8 @@ import { Image, Pressable, PressableProps } from "react-native";
 const icons = {
   eye: require("../assets/icons/eye.png"),
   "eye-off": require("../assets/icons/eye-off.png"),
-  //"arrow-left": require("../assets/icons/arrow-left.png"),
-  //"time-circle": require("../assets/icons/time-circle.png"),
+  "arrow-left": require("../assets/icons/arrow-left.png"),
+  "time-circle": require("../assets/icons/time-circle.png"),
   backspace: require("../assets/icons/backspace.png"),
   fingerprint: require("../assets/icons/fingerprint.png"),
 };
