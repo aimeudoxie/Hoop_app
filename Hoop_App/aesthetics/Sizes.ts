@@ -6,4 +6,5 @@ export default {
     lg: 24,
     xl: 28,
     sm2x: 12,
+    xl2x: 32,
   };
