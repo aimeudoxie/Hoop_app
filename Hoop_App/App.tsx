@@ -1,7 +1,7 @@
 //import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import Splash from './components/splashScreen';
-import Onboarding from './components/homeScreen';
+import Onboarding from './components/OnboardingScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {SignUpScreen} from './components/Navigator';

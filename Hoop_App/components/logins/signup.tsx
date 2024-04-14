@@ -6,7 +6,7 @@ import Sizes from "../../aesthetics/Sizes";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ImageBackground, StyleSheet, View, TouchableOpacity } from "react-native";
-import  Onboarding from '../homeScreen';
+import  Onboarding from '../OnboardingScreen';
 import { useNavigation } from '@react-navigation/native';
 
 

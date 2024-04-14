@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Onboarding from './homeScreen';
+import Onboarding from './OnboardingScreen';
 import Login from './logins/login';
 import Register from './logins/signup';
 import PhoneLogin from './logins/LoginWithPhone';
