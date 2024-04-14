@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/aimeudoxie/Hoop_app/compare/v1.2.0...v1.4.0) (2024-04-14)
+
+
+### Features
+
+* add Password recovery Pages. ([a03db43](https://github.com/aimeudoxie/Hoop_app/commit/a03db43dc82f55332d4a6f08847fe54514346d06))
+* modified the forgot password pages. ([464a24a](https://github.com/aimeudoxie/Hoop_app/commit/464a24a51686859c837084f26a47b5790e1cdd79))
+
 ## [1.3.0](https://github.com/aimeudoxie/Hoop_app/compare/v1.2.0...v1.3.0) (2024-04-12)
 
 
