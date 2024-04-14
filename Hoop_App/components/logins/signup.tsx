@@ -5,9 +5,19 @@ import Colors from "../../aesthetics/Colors";
 import Sizes from "../../aesthetics/Sizes";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet, View, TouchableOpacity } from "react-native";
+import  Onboarding from '../homeScreen';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Register() {
+  const navigation = useNavigation();
+  interface Slide {
+    id: string;
+    image: any;
+    title: string;
+    subtitle: string;
+  }
   const bgImage = require("../../assets/pattern.png");
   return (
     <View style={styles.container}>
@@ -29,7 +39,10 @@ export default function Register() {
         <View style={styles.footer}>
           <PrimaryButton label="Register" />
           <Text style={{ color: Colors.light.muted }}>
-            Have an account? <Link href="/(logins)/login">Sign In</Link>
+            Have an account? {" "}
+            <TouchableOpacity onPress={() => navigation.navigate('Login' as never)} > 
+            <Text style={{ color: Colors.light.danger }}>Sign In</Text>
+            </TouchableOpacity>
           </Text>
         </View>
       </View>

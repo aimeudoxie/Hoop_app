@@ -3,10 +3,19 @@ import { PrimaryButton } from "../../../aesthetics/designedbtns";
 import Colors from "../../../aesthetics/Colors";
 import Sizes from "../../../aesthetics/Sizes";
 import { router } from "expo-router";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 export default function ConfirmForgotPassword() {
+  const navigation = useNavigation();
+  interface Slide {
+    id: string;
+    image: any;
+    title: string;
+    subtitle: string;
+  }
   return (
+    
     <View style={styles.container}>
       <View style={{ flex: 1, alignItems: "center" }}>
         <Image
@@ -35,9 +44,9 @@ export default function ConfirmForgotPassword() {
       </View>
       <Text style={styles.footer}>
         Didn't receive the email? Check your spam filter or{" "}
-        <Link href="/(logins)/forgotpassword/forgot">
+        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword' as never)}>
           <Text style={styles.link}>try another email address</Text>
-        </Link>
+        </TouchableOpacity>
       </Text>
     </View>
   );

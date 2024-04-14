@@ -4,11 +4,18 @@ import { PrimaryButton } from "../../../aesthetics/designedbtns";
 import { TextInput } from "../../../aesthetics/inputs";
 import Sizes from "../../../aesthetics/Sizes";
 import { router } from "expo-router";
-import { StyleSheet, View } from "react-native";
-import { useNavigation } from 'expo-router';
+import { StyleSheet, View, TouchableOpacity, Pressable, } from "react-native";
 import Colors from "../../../aesthetics/Colors";
+import { useNavigation } from '@react-navigation/native';
 
 export default function ForgotPassword() {
+ const navigation = useNavigation();
+  interface Slide {
+    id: string;
+    image: any;
+    title: string;
+    subtitle: string;
+  }
     return (
       <View style={styles.container}>
         <LayoutHeader
@@ -30,14 +37,11 @@ export default function ForgotPassword() {
           <Text style={styles.label}>Email address</Text>
           <TextInput style={styles.input} placeholder="Email" />
           <View style={{ marginTop: Sizes.lg, flex: 1 }} />
-          <View>
-            <PrimaryButton
-              label="Send"
-              onPress={() => {
-              //  router.navigate("/(logins)/forgotpassword/confirmation");
-              }}
-            />
-          </View>
+            <Pressable style={styles.button}>
+               <TouchableOpacity  onPress={() => navigation.navigate('RequestCode' as never)} >
+                 <Text style={styles.btnText}> Send </Text>
+               </TouchableOpacity>
+           </Pressable>
         </View>
       </View>
     );
@@ -65,5 +69,17 @@ export default function ForgotPassword() {
     },
     label: {
       marginBottom: Sizes.sm,
+    },
+    button: {
+        width: "100%",
+        backgroundColor: Colors.dark.background,
+        paddingVertical: Sizes.md,
+        borderRadius: Sizes.md,
+        marginBottom: Sizes.lg,
+    },
+    btnText: {
+        textAlign: "center",
+        color: Colors.dark.text,
+        fontSize: Sizes.md2x,
     },
   });

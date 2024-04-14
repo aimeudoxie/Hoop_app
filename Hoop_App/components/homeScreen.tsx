@@ -1,148 +1,239 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { Link } from "expo-router";
-import Login from './logins/login';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import Swiper from 'react-native-swiper'; 
+import { useFonts as useFontsExpo } from 'expo-font';
+import { Navigator } from 'expo-router';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import {SignUpScreen} from './Navigator';
 
-export default function Home() {
-  
+export default function Onboarding() {
+  const navigation = useNavigation();
+  interface Slide {
+    id: string;
+    image: any;
+    title: string;
+    subtitle: string;
+  }
+
+  const slides: Slide[] = [
+    {
+      id: '1',
+      image: require('../assets/illustration1.png'),
+      title: 'Welcome',
+      subtitle: 'Find the best possible way to park',
+    },
+    {
+      id: '2',
+      image: require('../assets/illustration2.jpg'),
+      title: 'Hollaaa',
+      subtitle: 'Find the best possible parking space nearby your desired destination',
+    },
+    {
+      id: '3',
+      image: require('../assets/illustration3.jpg'),
+      title: 'Find Parking',
+      subtitle: 'Find your perfect parking space wherever and whenever you need',
+    },
+  ];
+  const [fontsLoaded] = useFontsExpo({ 
+    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+  });
+  if (!fontsLoaded) {
+    return null; 
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.skip}>Skip</Text>     
-        <View style={styles.imagecontent}>
-               <Image source={require('../assets/illustration1.png')} style={styles.image} />
-               <View style={styles.texts}>
-              <Text style={styles.h1}>Welcome</Text>
-              <Text style={styles.h2}>Find a best possible way to park</Text>
-              </View>
-              </View>          
+      <Text style={styles.skip}>Skip</Text>  
+
+      <Swiper 
+        // style={styles.swipercontainer} 
         
-        <View style={styles.login}>
-        <Image
-        source={require('../assets/Message.png')}  />
-        <Link href="./logins/login" style={styles.email}> Login with Email</Link>
-        
-        </View>
-        <View style={styles.phonelogin}>
-        <Image
-        source={require('../assets/phone.png')}  />
-        <Link href="/(logins)/phone-login" style={styles.phone}> Login with Phone</Link> 
-        </View>
-        <View style={styles.bottomtext}>
+        showsButtons={false} 
+        loop={false}
+        // height='50%'
+        dot={<View style={styles.dotStyle} />}
+        activeDot={<View style={styles.activeDotStyle} />}>
+        {slides.map((slide) => (
+          <View style={styles.slide} key={slide.id}>
+            <Image source={slide.image} style={styles.image} />
+            <View style={styles.texts}>
+              <Text style={styles.h1}>{slide.title}</Text>
+              <Text style={styles.h2}>{slide.subtitle}</Text>
+            </View>
+          </View>
+        ))}
+      </Swiper>
+
+      <TouchableOpacity onPress={() => navigation.navigate('Login' as never)} style={styles.login}>
+        <Image source={require('../assets/Message.png')} />
+        <Text style={styles.email}> Login with Email</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('PhoneLogin' as never)} style={styles.phonelogin}>
+        <Image source={require('../assets/phone.png')} />
+        <Text style={styles.phone}> Login with Phone</Text>
+      </TouchableOpacity>
+
+      <View style={styles.bottomtext}>
         <Text style={styles.bottomtext1}> Don't have an account?</Text>
-        <Text style={styles.bottomtext2}>Sign Up</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Register' as never)}>
+  <Text style={styles.bottomtext2}>Sign Up</Text>
+</TouchableOpacity>
+      </View>
+
       <StatusBar style="auto" />
     </View>  
   );
 }
+
 const styles = StyleSheet.create({
+  dotStyle:{
+    width: 7,
+    height: 7,
+    borderRadius: 20,
+    margin: 5,
+    backgroundColor: '#aaa',
+    alignSelf: "flex-start",
+  },
+  activeDotStyle:{
+    width: 7,
+    height: 7,
+    borderRadius: 20,
+    margin: 5,
+    backgroundColor: '#F43939',
+  },
   container: {
-    display:'flex',
-    flex:1,
+    height:'100%',
+    width:'100%',
+    display: 'flex',
     backgroundColor: '#EAEAF3',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    paddingTop:'16%',
-    paddingLeft:'10%',
-    paddingRight:'1%',
-    width:'100%'
+    alignItems: 'center',
+    paddingTop: '16%',
+    paddingBottom:'20%'
+   
   },
   
-  skip:{
-    textAlign:'right',
-    width:'90%',
-    color:'rgba(45,45,45,0.5)',
+  skip: {
+    textAlign: 'right',
+    width: '90%',
+    color: 'rgba(45,45,45,0.5)',
     fontSize: 18,
-    fontFamily:'Avenir',
-    fontWeight:'500',
+    fontFamily: 'Avenir',
+    fontWeight: '500',
   },
-  image:{
-   
-    marginTop:'28%',
-    width:328,
-    height:198
-    },
-    h1:{
-      color:'rgba(45,45,45,1)',
-      fontSize: 24,
-      fontFamily:'Avenir',
-      fontWeight:'500',
-      textAlign:'center'
-      
-    },
-    h2:{
-      color:'rgba(45,45,45,0.5)',
-      fontSize: 16,
-      fontFamily:'Avenir',
-      fontWeight:'500',
-      lineHeight:30,
-      textAlign:'center'
-      
-    },
-    texts:{
-      width:'100%',
-      alignItems:'center',
-      justifyContent:'center',
-      display:'flex',
-      marginTop:'25%'
-    },
-    login:{
-      width:'90%',
-      padding:20,
-      backgroundColor:'#2D2D2D',
-      marginTop:'10%',
-      borderRadius:15,
-      display:'flex',
-      flexDirection:'row',
-      alignItems:'center',
-      justifyContent:'center',
-      gap:10
-    },
-    email:{
-      color:'#fff',
-      fontSize: 18,
-      fontFamily:'Avenir',
-      fontWeight:'600',
-    },
-    phone:{
-      color:'rgba(45,45,45,0.7)',
-      fontSize: 18,
-      fontFamily:'Avenir',
-      fontWeight:'600',
-    },
-    phonelogin:{
-      width:'90%',
-      padding:20,
-      backgroundColor:'#fff',
-      marginTop:'5%',
-      borderRadius:15,
-      display:'flex',
-      flexDirection:'row',
-      alignItems:'center',
-      justifyContent:'center',
-      gap:10
-    },
-    bottomtext:{
-      flexDirection:'row',
-      alignItems:'center',
-      justifyContent:'center',
-      gap:10,
-      width:'90%',
-      marginTop:'5%',
-    },
-    bottomtext1:{
-      color:'rgba(45,45,45,1)',
-      fontSize: 14,
-      fontFamily:'Avenir',
-      fontWeight:'600',
-    },
-    bottomtext2:{
-      color:'#F43939',
-      fontSize: 14,
-      fontFamily:'Avenir',
-      fontWeight:'600',
-    },
-    imagecontent:{
-      alignItems: 'center',
-    }
+  
+  slide: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor:'black',
+    
+  },
+
+  image: {
+    width: 328,
+    height: 198,
+    resizeMode: 'contain',
+  },
+
+  h1: {
+    color: 'rgba(45,45,45,1)',
+    fontSize: 24,
+    fontFamily: 'Avenir',
+    fontWeight: '500',
+    textAlign: 'center'
+  },
+  
+  h2: {
+    color: 'rgba(45,45,45,0.5)',
+    fontSize: 16,
+    fontFamily: 'Avenir',
+    fontWeight: '500',
+    lineHeight: 30,
+    textAlign: 'center'
+  },
+
+  texts: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:'60%',
+    marginTop:'10%'
+  },
+
+  login: {
+    width: '85%',
+    padding: 20,
+    backgroundColor: '#2D2D2D',
+    borderRadius: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+  },
+
+  email: {
+    color: '#fff',
+    fontSize: 18,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
+  },
+
+  phone: {
+    color: 'rgba(45,45,45,0.7)',
+    fontSize: 18,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
+  },
+
+  phonelogin: {
+    width: '85%',
+    padding: 20,
+    backgroundColor: '#fff',
+    marginTop: '5%',
+    borderRadius: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    
+  },
+
+  bottomtext: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    width: '90%',
+    marginTop: '5%',
+  },
+
+  bottomtext1: {
+    color: 'rgba(45,45,45,1)',
+    fontSize: 15,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
+  },
+
+  bottomtext2: {
+    color: '#F43939',
+    fontSize: 15,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
+  },
+  swipercontainer:{
+    borderColor:'black',
+    borderWidth:2,
+    backgroundColor: "#888",
+    maxHeight: 400,
+    position: "absolute",
+    left: 0,
+    right: 0
+
+  }
 });

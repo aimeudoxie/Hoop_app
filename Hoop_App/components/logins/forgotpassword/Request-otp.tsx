@@ -1,143 +1,80 @@
-import { Icon } from "../../../aesthetics/icons";
-import LayoutHeader from "../../../aesthetics/header";
-import { Text } from "../../../aesthetics/design";
-import { TextInput } from "../../../aesthetics/inputs";
+import React, { useState, useEffect } from "react";
+import { KeyboardAvoidingView, SafeAreaView, View, Pressable, Text, StyleSheet, Platform } from "react-native";
+import OTPInputView from "@twotalltotems/react-native-otp-input";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { useNavigation } from "@react-navigation/native";
+import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import Colors from "../../../aesthetics/Colors";
 import Sizes from "../../../aesthetics/Sizes";
-import { router } from "expo-router";
-import { StyleSheet, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-export default function RequestOTP() {
-  const insets = useSafeAreaInsets();
+const OtpScreen: React.FC = () => {
+  const navigation = useNavigation();
+  const [timer, setTimer] = useState(60);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const minutes = Math.floor(timer / 60);
+  const seconds = timer % 60;
+
   return (
-    <View style={[styles.container, { marginBottom: -insets.bottom }]}>
-      <LayoutHeader
-        title="OTP Verifivation"
-        onBackPress={() => {
-          if (router.canGoBack()) {
-            router.back();
-          }
-        }}
-      />
-      <View style={styles.header}>
-        <Text style={styles.title}>
-          We have sent an OTP on given number +62 8123456789
-        </Text>
-      </View>
-      <View style={styles.body}>
-        <View style={styles.otpInputs}>
-          <TextInput readOnly style={styles.otpInput} value="5" />
-          <TextInput readOnly style={styles.otpInput} value="8" />
-          <TextInput readOnly style={styles.otpInput} value="7" />
-          <TextInput readOnly style={styles.otpInput} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <KeyboardAvoidingView behavior={Platform.OS == "android" ? 'padding' : "height"} style={{ flex: 1, alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', alignItems: "center", marginTop: 30, marginBottom: 40, gap:50, }}>
+          <Pressable style={styles.back} onPress={() => navigation.goBack()}>
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </Pressable>
+          <Text style={{ fontSize: 25, marginRight: 70, }}>OTP Verification</Text>
         </View>
-        <View style={styles.countdown}>
-          <Icon name="time-circle" style={{ left: 0 }} />
-          <Text style={styles.countdownText}>&nbsp; 00:47</Text>
+        <View style={{ width: '80%', marginBottom: 20 }}>
+          <Text style={{ textAlign: 'center', lineHeight: 30, fontSize: 17 }}>
+            We have sent an OTP to your phone number +62 8123456789
+          </Text>
         </View>
-      </View>
-      <View style={styles.keypad}>
-        <View style={styles.row}>
-          {[1, 2, 3].map((i) => (
-            <OTPInput key={i} value={i} />
-          ))}
+        <OTPInputView
+          style={{ width: '70%', height: 200 }}
+          pinCount={4}
+          autoFocusOnLoad
+          codeInputFieldStyle={{
+            width: 50,
+            height: 40,
+            borderWidth: 0,
+            color: 'black',
+            fontSize: 25,
+            textAlign: 'center',
+            borderBottomWidth: 2,
+            borderColor: 'black',
+          }}
+          codeInputHighlightStyle={{
+            borderColor: '#999',
+          }}
+          onCodeFilled={(code) => alert(code)}
+        />
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
+          <Text style={{ fontSize: 20, marginRight: 10, color: Colors.light.danger,  }}>{minutes < 10 ? `0${minutes}` : minutes}</Text>
+          <Text>:</Text>
+          <Text style={{ fontSize: 20, marginLeft: 10, color: Colors.light.danger, }}>{seconds < 10 ? `0${seconds}` : seconds}</Text>
         </View>
-        <View style={styles.row}>
-          {[4, 5, 6].map((i) => (
-            <OTPInput key={i} value={i} />
-          ))}
-        </View>
-        <View style={styles.row}>
-          {[7, 8, 9].map((i) => (
-            <OTPInput key={i} value={i} />
-          ))}
-        </View>
-        <View style={styles.row}>
-          {["", 0, "backspace"].map((i, index) => (
-            <OTPInput key={index} value={i} />
-          ))}
-        </View>
-      </View>
-    </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
-}
+};
 
-function OTPInput({ value }: { value: number | string }) {
-  if (value === "backspace") {
-    return <Icon name="backspace" style={styles.keypadIcon} />;
-  }
-  return <Text style={styles.keypadText}>{value}</Text>;
-}
+export default OtpScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: Sizes.xl,
-    top: 25,
-  },
-  header: {
-    flex: 2,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: Sizes.lg ,
-  },
-  title: {
-    fontSize: Sizes.lg,
-    fontWeight: "500",
-    marginBottom: Sizes.sm,
-    textAlign: "center",
-    paddingHorizontal: 50
-    
-  },
-  body: {
-    flex: 2,
-  },
-  countdown: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  countdownText: {
-    fontSize: Sizes.md2x,
-    color: Colors.light.danger,
-  },
-  otpInputs: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: Sizes.md3x,
-  },
-  otpInput: {
-    width: 50,
-    height: 50,
-    textAlign: "center",
-    backgroundColor: "transparent",
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.light.muted,
-    borderRadius: 0,
-    fontWeight: "bold",
-    fontSize: Sizes.xl2x,
-  },
-  keypad: {
-    flex: 3,
-    marginHorizontal: -Sizes.md,
-    backgroundColor: Colors.light.dark,
-    paddingVertical: Sizes.lg,
-  },
-  row: {
-    flexDirection: "row",
-    flex: 1,
-    justifyContent: "space-around",
-    padding: Sizes.md,
-  },
-  keypadText: {
-    fontSize: Sizes.xl,
-    color: Colors.light.light,
-    minWidth: 25,
-  },
-  keypadIcon: {
-    minWidth: 25,
-    height: "80%",
-    justifyContent: "center",
-  },
+  back: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0, 0, 0.2)',
+  }
 });

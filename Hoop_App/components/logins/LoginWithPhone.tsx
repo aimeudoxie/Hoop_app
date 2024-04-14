@@ -2,17 +2,28 @@ import Colors from "../../aesthetics/Colors";
 import Sizes from "../../aesthetics/Sizes";
 import { Link } from "expo-router";
 import React from "react";
+import { useNavigation } from '@react-navigation/native';
 import {
   ImageBackground,
   Pressable,
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { PasswordInput, PhoneInput } from "../../aesthetics/inputs";  
   
 export default function PhoneLogin() {
+
+    const navigation = useNavigation();
+    interface Slide {
+      id: string;
+      image: any;
+      title: string;
+      subtitle: string;
+    }
+    
   const bgImage = require("../../assets/pattern.png");
   const [loginMethod, setLoginMethod] = React.useState("tel");
   return (
@@ -25,21 +36,25 @@ export default function PhoneLogin() {
       <View style={styles.form}>
         <View style={{ flex: 1 }}>
          {loginMethod === "phone" ? < LoginWithPhone/> : < LoginWithPhone/>}
+         <Text style={styles.forgot}>
+            Forgot Password?{" "}
+            <TouchableOpacity onPress={() => navigation.navigate('RequestOTP' as never)} > 
+            <Text style={{ ...styles.retrieve }}> Retrieve</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
         <View style={styles.footer}>
           <Pressable style={styles.button}>
             <Text style={styles.btnText}>Login</Text>
           </Pressable>
-          <Text style={styles.text}>
-            Don't have an account?{" "}
-            <Link
-              href="/signup"
-              style={{ ...styles.text, ...styles.primaryText }}
-            >
-              Sign Up
-            </Link>
-          </Text>
         </View>
+        <View style={styles.bottomtext}>
+         <Text style={styles.bottomtext1}> Don't have an account?</Text>
+         <TouchableOpacity onPress={() => navigation.navigate('Register' as never)}>
+             <Text style={styles.bottomtext2}>Sign Up</Text>
+         </TouchableOpacity>
+        </View>
+        
       </View>
     </View>
   );
@@ -125,5 +140,35 @@ const styles = StyleSheet.create({
     borderRadius: Sizes.md,
     backgroundColor: Colors.white,
     color: Colors.light.text,
+  },
+  forgot: {
+    paddingEnd: 8 ,
+    textAlign: "right",
+    color: Colors.light.muted,
+  },
+  retrieve: {
+    color: Colors.light.primary,
+  },
+  bottomtext: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    width: '90%',
+    marginTop: '5%',
+  },
+
+  bottomtext1: {
+    color: Colors.light.muted,
+    fontSize: 15,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
+  },
+
+  bottomtext2: {
+    color: '#F43939',
+    fontSize: 15,
+    fontFamily: 'Avenir',
+    fontWeight: '600',
   },
 });
