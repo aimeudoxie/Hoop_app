@@ -8,7 +8,7 @@ import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import Colors from "../../../aesthetics/Colors";
 import Sizes from "../../../aesthetics/Sizes";
 
-const OtpScreen: React.FC = () => {
+const RequestOtpScreen: React.FC = () => {
   const navigation = useNavigation();
   const [timer, setTimer] = useState(60);
 
@@ -66,7 +66,7 @@ const OtpScreen: React.FC = () => {
   );
 };
 
-export default OtpScreen;
+export default RequestOtpScreen;
 
 const styles = StyleSheet.create({
   back: {
