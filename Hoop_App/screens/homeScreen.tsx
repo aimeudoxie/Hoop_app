@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
+import SpaceItem from '../components/Spaces';
 
 export default function Home() {
     const [text, setText] = useState('');
@@ -42,66 +43,47 @@ export default function Home() {
       </View>
 
       <View style={styles.contentcontainer}>
-        <Text style={styles.categorytitle}>Categories</Text>
+        <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Categories</Text></View>
         <View style={styles.categories}>
-            <View>
+            <View style={styles.category_item}>
                 <Image
                 source={require('../assets/image 31.png')}>
                 </Image>
                 <Text style={styles.categorysubtitle}>Car</Text>
                 </View>
-                <View>
+                <View style={styles.category_item}>
                 <Image
                 source={require('../assets/image 32.png')}>
                 </Image>
                 <Text style={styles.categorysubtitle}>Bike</Text>
                 </View>
-                <View>
+                <View style={styles.category_item}>
                 <Image
                 source={require('../assets/image 33.png')}>
                 </Image>
                 <Text style={styles.categorysubtitle}>Bus</Text>
                 </View>
-                <View>
+                <View style={styles.category_item}>
                 <Image
                 source={require('../assets/image 34.png')}>
                 </Image>
                 <Text style={styles.categorysubtitle}>Van</Text>
                 </View>
         </View>
-        <Text style={styles.categorytitle}>Nearest Parking Spaces</Text>
-        <View style={styles.Spaces}>
-            <Image 
-            source={require('../assets/image1.png')} style={styles.spaceimage}>
-                 </Image>
-                 <View style={{padding:10}}>
-                    <Text style={styles.spacetitle}>Graha Mall</Text>
-                    <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
-                    <Text style={styles.spaceprice}>
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>$7</Text><Text>/hour</Text>
-                        </Text>
-                </View>
-                <View>
-                    <Text style={{color:'rgba(244,57,57,0.8)'}}>7 min</Text>
-                </View>         
-
-        </View>
-        <View style={styles.Spaces}>
-            <Image 
-            source={require('../assets/image2.png')} style={styles.spaceimage}>
-                 </Image>
-                <View style={{padding:10}}>
-                    <Text style={styles.spacetitle}>Graha Mall</Text>
-                    <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
-                    <Text style={styles.spaceprice}>
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>$7</Text><Text>/hour</Text>
-                        </Text>
-                </View>
-                <View>
-                    <Text style={{color:'rgba(244,57,57,0.8)'}}>7 min</Text>
-                </View>          
-
-        </View>
+        <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
+        <SpaceItem 
+        imageSource={require('../assets/image1.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
+         <SpaceItem 
+        imageSource={require('../assets/image1.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
+        
       </View>
 
 
@@ -127,20 +109,24 @@ const styles = StyleSheet.create({
     spaceprice:{
         color:'#F43939',
         fontFamily:'Avenir',
-        marginTop:'30%'
+        marginTop:'15%'
     },
     Spaces:{
         flexDirection:'row',
         justifyContent:'space-between',
-        gap:15,
+        alignItems:'flex-start',
+        backgroundColor:'#fff',
+        width:'100%',
+        gap:10,
+        height:126,
         padding:10,
-        paddingTop:20,
+        borderRadius:15,
+        marginTop:'8%'
         
     },
     categorytitle:{
         fontSize:20,
-        fontFamily:'Avenirroman',
-        
+        fontFamily:'Avenirroman',        
     },
     categorysubtitle:{
         fontSize:14,
@@ -149,11 +135,20 @@ const styles = StyleSheet.create({
         lineHeight:30,
         color:'#2D2D2D'
     },
+    category_item:{
+      backgroundColor:"#fff",
+      width:67,
+      height:73,
+      borderRadius:10,
+      alignItems:'center',
+      justifyContent:'center'
+    },
     categories:{
         flexDirection:'row',
-        width:'100%',
+        width:'85%',
         justifyContent:'space-between',
-        padding:30
+       marginTop:30,
+       marginBottom:40
     },
     
     searchinput:{
@@ -195,7 +190,7 @@ const styles = StyleSheet.create({
         gap:40,
         width:'85%',
         alignItems:'center',
-        marginTop:'15%',
+        marginTop:'20%',
         marginLeft:30, 
         marginRight:30,     
     },
@@ -208,21 +203,22 @@ const styles = StyleSheet.create({
         borderRadius:10
     },
   contentcontainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#F4F4FA',
     flex: 1,
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent:'center',
     width: '100%',
     height: '80%',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    padding:35
+    
   },
   container: {
     display: 'flex',
     backgroundColor: '#081024',
     alignItems: 'center',
     flex: 1,
-    marginTop: 40,
+   
   },
   header: {
     height: '30%',

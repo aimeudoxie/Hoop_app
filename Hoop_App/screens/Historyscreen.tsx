@@ -36,7 +36,7 @@ export default function Explore() {
             <Image 
             source={require('../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
-                 <View style={{padding:10}}>
+                 <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
                     <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
                     
@@ -51,8 +51,8 @@ export default function Explore() {
                             </View>
                         </View>
                 </View>
-                <View>
-                    <Text style={{color:'rgba(45,45,45,0.5)'}}>12 Aug</Text>
+                <View style={{margin:5,marginRight:25}}>
+                <Text style={{color:'rgba(45,45,45,0.5)',}}>12 Aug</Text>
                 </View>         
 
         </View>
@@ -60,7 +60,7 @@ export default function Explore() {
             <Image 
             source={require('../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
-                 <View style={{padding:10}}>
+                 <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
                     <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
                     
@@ -75,8 +75,8 @@ export default function Explore() {
                             </View>
                         </View>
                 </View>
-                <View>
-                <Text style={{color:'rgba(45,45,45,0.5)'}}>12 Aug</Text>
+                <View style={{margin:5,marginRight:25}}>
+                <Text style={{color:'rgba(45,45,45,0.5)',}}>12 Aug</Text>
                 </View>         
 
         </View>
@@ -85,7 +85,7 @@ export default function Explore() {
             <Image 
             source={require('../assets/image2.png')} style={styles.spaceimage}>
                  </Image>
-                <View style={{padding:10}}>
+                <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
                     <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
                     
@@ -102,8 +102,8 @@ export default function Explore() {
                         </View>
                         
                 </View>
-                <View>
-                <Text style={{color:'rgba(45,45,45,0.5)'}}>12 Aug</Text>
+                <View style={{margin:5,marginRight:25}}>
+                <Text style={{color:'rgba(45,45,45,0.5)',}}>12 Aug</Text>
                 </View>                  
       </View>
           <StatusBar style="auto" />
@@ -179,7 +179,6 @@ const styles = StyleSheet.create({
     spaceimage:{
         width:98,
         height:104,
-        
     },
     spacetitle:{
         fontSize:18,
@@ -190,20 +189,30 @@ const styles = StyleSheet.create({
         color:'rgba(45,45,45,0.5)',
         fontFamily:'Avenir'
     },
-    spacespec:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginTop:'25%',
-        
-        },
+    spaceprice:{
+        color:'#F43939',
+        fontFamily:'Avenir',
+        marginTop:'15%'
+    },
     Spaces:{
         flexDirection:'row',
         justifyContent:'space-between',
-        gap:15,
+        alignItems:'flex-start',
+        backgroundColor:'#fff',
+        gap:10,
+        width:'85%',
+        height:126,
         padding:10,
-        paddingTop:20,
+        borderRadius:15,
+        marginTop:'8%'
         
     },
+    spacespec:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginTop:'20%',
+        },
+
     categorytitle:{
         fontSize:22,
         fontFamily:'Avenir'
@@ -258,15 +267,16 @@ const styles = StyleSheet.create({
         fontFamily:'Avenir',
         fontSize:20,
         fontWeight:'400',
-        lineHeight:30
+        lineHeight:30,
+        marginTop: 80,
     }, 
   container: {
     display: 'flex',
-    backgroundColor: '#fff',
+    backgroundColor: '#F4F4FA',
     alignItems: 'center',
     justifyContent:'flex-start',
     flex: 1,
-    marginTop: 80,
+    
     position:'relative'
   },
   

@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
         borderRadius:10
     },
   contentcontainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#F4F4FA',
     flex: 1,
     justifyContent:'space-around',
     alignItems: 'center',

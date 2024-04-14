@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
+import SpaceItem from '../components/Spaces';
 
 export default function History() {
   const [text, setText] = useState('');
@@ -37,54 +38,24 @@ export default function History() {
         <Text style={styles.navigationtext}>Most Popular</Text>
         <Text style={styles.navigationtext}>Most Wanted</Text>
      </View> 
-        
-        <View style={styles.Spaces}>
-            <Image 
-            source={require('../assets/image1.png')} style={styles.spaceimage}>
-                 </Image>
-                 <View style={{padding:10}}>
-                    <Text style={styles.spacetitle}>Graha Mall</Text>
-                    <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
-                    <Text style={styles.spaceprice}>
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>$7</Text><Text>/hour</Text>
-                        </Text>
-                </View>
-                <View>
-                    <Text style={{color:'rgba(244,57,57,0.8)'}}>7 min</Text>
-                </View>         
-
-        </View>
-        <View style={styles.Spaces}>
-            <Image 
-            source={require('../assets/image1.png')} style={styles.spaceimage}>
-                 </Image>
-                 <View style={{padding:10}}>
-                    <Text style={styles.spacetitle}>Graha Mall</Text>
-                    <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
-                    <Text style={styles.spaceprice}>
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>$7</Text><Text>/hour</Text>
-                        </Text>
-                </View>
-                <View>
-                    <Text style={{color:'rgba(244,57,57,0.8)'}}>7 min</Text>
-                </View>         
-
-        </View>
-        <View style={styles.Spaces}>
-            <Image 
-            source={require('../assets/image2.png')} style={styles.spaceimage}>
-                 </Image>
-                <View style={{padding:10}}>
-                    <Text style={styles.spacetitle}>Graha Mall</Text>
-                    <Text style={styles.spaceaddress}>123 Dhaka Street</Text>
-                    <Text style={styles.spaceprice}>
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>$7</Text><Text>/hour</Text>
-                        </Text>
-                </View>
-                <View>
-                    <Text style={{color:'rgba(244,57,57,0.8)'}}>7 min</Text>
-                </View>                  
-      </View>
+     <SpaceItem 
+        imageSource={require('../assets/image1.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
+         <SpaceItem 
+        imageSource={require('../assets/image1.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
+          <SpaceItem 
+        imageSource={require('../assets/image3.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
       <View style={styles.location}>
         <Image source={require('../assets/location.png')}>
 
@@ -171,14 +142,19 @@ const styles = StyleSheet.create({
     spaceprice:{
         color:'#F43939',
         fontFamily:'Avenir',
-        marginTop:'25%'
+        marginTop:'15%'
     },
     Spaces:{
         flexDirection:'row',
         justifyContent:'space-between',
-        gap:15,
+        alignItems:'flex-start',
+        backgroundColor:'#fff',
+        gap:10,
+        width:'85%',
+        height:126,
         padding:10,
-        paddingTop:20,
+        borderRadius:15,
+        marginTop:'8%'
         
     },
     categorytitle:{
@@ -222,15 +198,14 @@ const styles = StyleSheet.create({
         fontFamily:'Avenir',
         fontSize:20,
         fontWeight:'400',
-        lineHeight:30
+        lineHeight:30,marginTop:80
     }, 
   container: {
     display: 'flex',
-    backgroundColor: '#fff',
+    backgroundColor: '#F4F4FA',
     alignItems: 'center',
     justifyContent:'flex-start',
     flex: 1,
-    marginTop: 80,
     position:'relative'
   },
   
