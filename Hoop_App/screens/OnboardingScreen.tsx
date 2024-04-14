@@ -1,14 +1,19 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper'; 
 import { useFonts as useFontsExpo } from 'expo-font';
+import { Navigator } from 'expo-router';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import {SignUpScreen} from './Navigator';
 
 export default function Onboarding() {
-  
+  const navigation = useNavigation();
   interface Slide {
     id: string;
-    image: number;
+    image: any;
     title: string;
     subtitle: string;
   }
@@ -22,13 +27,13 @@ export default function Onboarding() {
     },
     {
       id: '2',
-      image: require('../assets/illustration2.png'),
+      image: require('../assets/illustration2.jpg'),
       title: 'Hollaaa',
       subtitle: 'Find the best possible parking space nearby your desired destination',
     },
     {
       id: '3',
-      image: require('../assets/illustration3.png'),
+      image: require('../assets/illustration3.jpg'),
       title: 'Find Parking',
       subtitle: 'Find your perfect parking space wherever and whenever you need',
     },
@@ -65,19 +70,21 @@ export default function Onboarding() {
         ))}
       </Swiper>
 
-      <View style={styles.login}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login' as never)} style={styles.login}>
         <Image source={require('../assets/Message.png')} />
         <Text style={styles.email}> Login with Email</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.phonelogin}>
+      <TouchableOpacity onPress={() => navigation.navigate('PhoneLogin' as never)} style={styles.phonelogin}>
         <Image source={require('../assets/phone.png')} />
         <Text style={styles.phone}> Login with Phone</Text>
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.bottomtext}>
         <Text style={styles.bottomtext1}> Don't have an account?</Text>
-        <Text style={styles.bottomtext2}>Sign Up</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Register' as never)}>
+  <Text style={styles.bottomtext2}>Sign Up</Text>
+</TouchableOpacity>
       </View>
 
       <StatusBar style="auto" />

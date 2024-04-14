@@ -12,16 +12,16 @@ import Notification from './screens/NotificationScreen';
 import DetailHistory from './screens/DetailHistory';
 import EditProfile from './screens/EditProfileScreen';
 import ParkingRoute from './screens/parkingRouteScreen';
-import Onboarding from './components/OnboardingScreen';
+import Onboarding from './screens/OnboardingScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {SignUpScreen} from './components/Navigator';
-import { LoginScreen } from './components/Navigator';
-import { RequestCodeScreen } from './components/Navigator';
-import { RequestOtpScreen } from './components/Navigator';
-import { ForgotPasswordScreen } from './components/Navigator';
-import { ConfirmPasswordScreen } from './components/Navigator';
-import { PhoneLoginScreen } from './components/Navigator';
+import {SignUpScreen} from './screens/Navigator';
+import { LoginScreen } from './screens/Navigator';
+import { RequestCodeScreen } from './screens/Navigator';
+import { RequestOtpScreen } from './screens/Navigator';
+import { ForgotPasswordScreen } from './screens/Navigator';
+import { ConfirmPasswordScreen } from './screens/Navigator';
+import { PhoneLoginScreen } from './screens/Navigator';
 
 const Stack = createStackNavigator();
 export default function App() {
