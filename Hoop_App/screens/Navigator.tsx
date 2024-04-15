@@ -9,6 +9,9 @@ import ConfirmForgotPassword from './logins/forgotpassword/confirmation';
 import RequestCode from './logins/forgotpassword/Request-code';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ForgotPassword from './logins/forgotpassword/forgot';
+import Home from './homeScreen';
+import DetailParking from './DetailParkingScreen';
+import TrackingPark from './TrackingPark';
 
 const Stack = createStackNavigator();
 
@@ -42,4 +45,16 @@ export function ForgotPasswordScreen() {
 
 export function ConfirmPasswordScreen() {
   return <ConfirmForgotPassword />;
+}
+
+export function HomeScreen() {
+  return <Home />;
+}
+
+export function DetailParkingScreen() {
+  return <DetailParking />;
+}
+
+export function TrackingParkScreen() {
+  return <TrackingPark />;
 }

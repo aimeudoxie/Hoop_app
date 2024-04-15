@@ -1,13 +1,39 @@
-import Sizes from "./Sizes";
 import { Image, Pressable, PressableProps } from "react-native";
 
 const icons = {
-  eye: require("../assets/icons/eye.png"),
   "eye-off": require("../assets/icons/eye-off.png"),
   "arrow-left": require("../assets/icons/arrow-left.png"),
+  "arrow-up-left": require("../assets/icons/arrow-up-left.png"),
   "time-circle": require("../assets/icons/time-circle.png"),
+  "info-circle": require("../assets/icons/info-circle.png"),
+  "screw-driver": require("../assets/icons/screw-driver.png"),
+  "current-location": require("../assets/icons/current-location.png"),
+  "dark-arrow-left": require("../assets/icons/dark-arrow-left.png"),
+  "message-pink": require("../assets/icons/messagepink.png"),
+  "side-car": require("../assets/icons/side-car.png"),
+  "dark-search": require("../assets/icons/dark-search.png"),
+  "question-circle": require("../assets/icons/question-circle.png"),
+  "dark-arrow-right": require("../assets/icons/dark-arrow-right.png"),
+  eye: require("../assets/icons/eye.png"),
   backspace: require("../assets/icons/backspace.png"),
   fingerprint: require("../assets/icons/fingerprint.png"),
+  filter: require("../assets/icons/filter.png"),
+  call: require("../assets/icons/call.png"),
+  message: require("../assets/icons/Message.png"),
+  location: require("../assets/icons/location.png"),
+  fuel: require("../assets/icons/fuel.png"),
+  car: require("../assets/icons/car.png"),
+  search: require("../assets/icons/search.png"),
+  comment: require("../assets/icons/comment.png"),
+  bike: require("../assets/icons/bike.png"),
+  bus: require("../assets/icons/bus.png"),
+  van: require("../assets/icons/van.png"),
+  setting: require("../assets/icons/setting.png"),
+  discount: require("../assets/icons/discount.png"),
+  document: require("../assets/icons/document.png"),
+  profile: require("../assets/icons/profile.png"),
+  headset: require("../assets/icons/headset.png"),
+  tick: require("../assets/icons/tick.png"),
 };
 
 const sizes = {
@@ -28,11 +54,7 @@ export function Icon(props: IconProps & PressableProps) {
   return (
     <Pressable
       style={{
-        position: "absolute",
-        top: 0,
-        bottom: 0,
-        zIndex: 1,
-        right: Sizes.md,
+        position: "relative",
         justifyContent: "center",
         alignItems: "center",
       }}
