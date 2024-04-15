@@ -14,6 +14,9 @@ import EditProfile from './screens/EditProfileScreen';
 import ParkingRoute from './screens/parkingRouteScreen';
 import Onboarding from './screens/OnboardingScreen';
 import TrackingPark from './screens/TrackingPark';
+import Payment from './screens/Payments/Payment';
+import Details from './screens/Payments/PaymentDetails';
+import Success from './screens/Payments/PaymentSuccess';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {SignUpScreen} from './screens/Navigator';
@@ -27,19 +30,19 @@ import { PhoneLoginScreen } from './screens/Navigator';
 const Stack = createStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer>
-      <TrackingPark/>
-   {/* <Stack.Navigator>
+     <NavigationContainer>
+    {/* <Stack.Navigator>
       <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="Register" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="PhoneLogin" component={PhoneLoginScreen} />
+      <Stack.Screen name="PhoneLogin" component={PhoneLoginScreen} />    
       <Stack.Screen name="ConfirmPassword" component={ConfirmPasswordScreen} />
       <Stack.Screen name="RequestCode" component={RequestCodeScreen} />
       <Stack.Screen name="RequestOTP" component={RequestOtpScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-    
-  </Stack.Navigator>*/}
+  
+       </NavigationContainer> 
+  </Stack.Navigator>*/}<Success/>
   </NavigationContainer>
 );
 }

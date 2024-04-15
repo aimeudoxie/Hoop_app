@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/aimeudoxie/Hoop_app/compare/v1.4.0...v1.5.0) (2024-04-15)
+
+
+### Features
+
+* Adding profile,explore,history and category screen ([d1d96bc](https://github.com/aimeudoxie/Hoop_app/commit/d1d96bce35e19e1cc90c6c8ff53e9ec436d9e667))
+* **Payment:** Added payment detail screens. ([5a4179c](https://github.com/aimeudoxie/Hoop_app/commit/5a4179ca94133cbc5997895870f26eca71025c71))
+* Renamed the Onboarding screen. ([bf9d52e](https://github.com/aimeudoxie/Hoop_app/commit/bf9d52ee8587619c3cc02d712736c6813c2c2dcb))
+
+
+### Bug Fixes
+
+* Modified the request-otp page ([46202a1](https://github.com/aimeudoxie/Hoop_app/commit/46202a1d5da4bad8bfcd46f068e3c9f7c7c06397))
+
 ## [1.4.0](https://github.com/aimeudoxie/Hoop_app/compare/v1.2.0...v1.4.0) (2024-04-14)
 
 
