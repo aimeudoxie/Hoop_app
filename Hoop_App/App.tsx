@@ -13,6 +13,7 @@ import DetailHistory from './screens/DetailHistory';
 import EditProfile from './screens/EditProfileScreen';
 import ParkingRoute from './screens/parkingRouteScreen';
 import Onboarding from './screens/OnboardingScreen';
+import TrackingPark from './screens/TrackingPark';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {SignUpScreen} from './screens/Navigator';
@@ -27,7 +28,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator>
+      <TrackingPark/>
+   {/* <Stack.Navigator>
       <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="Register" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
@@ -37,15 +39,10 @@ export default function App() {
       <Stack.Screen name="RequestOTP" component={RequestOtpScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
     
-    </Stack.Navigator>
+  </Stack.Navigator>*/}
   </NavigationContainer>
 );
 }
-const style=StyleSheet.create({
-  body:{
-    height:850,
-    backgroundColor:'#EAEAF3',
-  }
-})
+
  
 
