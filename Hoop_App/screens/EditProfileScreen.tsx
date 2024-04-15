@@ -6,8 +6,10 @@ import { StyleSheet, Text, View, ImageBackground, Image, TextInput, TouchableOpa
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import { LinearGradient } from 'expo-linear-gradient'; 
 import { Dropdown } from 'react-native-element-dropdown';
+import { useNavigation } from '@react-navigation/native';
 
 export default function EditProfile() {
+    const navigation = useNavigation();
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [address, setAddress] = useState('');
@@ -31,9 +33,9 @@ export default function EditProfile() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <View style={styles.back}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               <Text style={styles.text}>Edit Profile</Text>
           </View>
           <View style={{marginTop:'10%',alignItems:'center'}} >
@@ -87,10 +89,10 @@ export default function EditProfile() {
         />
         </View>        
         <View style={styles.button_container}>
-        <TouchableOpacity style={styles.button1}>
+        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Profile' as never)}>
               <Text style={styles.buttontext1}> Cancel </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button2}>
+          <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Profile' as never)}>
               <Text style={styles.buttontext2}> Save </Text>
           </TouchableOpacity>
         </View>

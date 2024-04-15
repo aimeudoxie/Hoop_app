@@ -38,7 +38,7 @@ export default function ForgotPassword() {
           <TextInput style={styles.input} placeholder="Email" />
           <View style={{ marginTop: Sizes.lg, flex: 1 }} />
             <Pressable style={styles.button}>
-               <TouchableOpacity  onPress={() => navigation.navigate('RequestCode' as never)} >
+               <TouchableOpacity  onPress={() => navigation.navigate('ConfirmPassword' as never)} >
                  <Text style={styles.btnText}> Send </Text>
                </TouchableOpacity>
            </Pressable>

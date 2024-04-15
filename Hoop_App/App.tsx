@@ -14,9 +14,11 @@ import EditProfile from './screens/EditProfileScreen';
 import ParkingRoute from './screens/parkingRouteScreen';
 import Onboarding from './screens/OnboardingScreen';
 import TrackingPark from './screens/TrackingPark';
+import UpgradePro from './screens/UpgradePro';
+import ChoosePlan from './screens/Chooseplan';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {SignUpScreen} from './screens/Navigator';
+import {ChoosePlanScreen, DetailCategoryScreen, DetailHistoryScreen, EditProfileScreen, ExploreScreen, HistoryScreen, HomeScreen, NotificationScreen, ParkingRouteScreen, ProfileScreen, SignUpScreen, TrackingParkScreen, UpgradeProScreen} from './screens/Navigator';
 import { LoginScreen } from './screens/Navigator';
 import { RequestCodeScreen } from './screens/Navigator';
 import { RequestOtpScreen } from './screens/Navigator';
@@ -28,8 +30,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <TrackingPark/>
-   {/* <Stack.Navigator>
+      
+   <Stack.Navigator screenOptions={{ headerShown: false }}>   
       <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="Register" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
@@ -38,8 +40,19 @@ export default function App() {
       <Stack.Screen name="RequestCode" component={RequestCodeScreen} />
       <Stack.Screen name="RequestOTP" component={RequestOtpScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-    
-  </Stack.Navigator>*/}
+      <Stack.Screen name="History" component={HistoryScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+      <Stack.Screen name="Explore" component={ExploreScreen} />
+      <Stack.Screen name="UpgradePro" component={UpgradeProScreen} />
+      <Stack.Screen name="ChoosePlan" component={ChoosePlanScreen} />
+      <Stack.Screen name="ParkingRoute" component={ParkingRouteScreen} />
+      <Stack.Screen name="TrackingPark" component={TrackingParkScreen} />
+      <Stack.Screen name="Notification" component={NotificationScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="DetailCategory" component={DetailCategoryScreen} />
+      <Stack.Screen name="DetailHistory" component={DetailHistoryScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+  </Stack.Navigator>
   </NavigationContainer>
 );
 }

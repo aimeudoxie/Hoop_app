@@ -44,7 +44,7 @@ export default function PhoneLogin() {
           </Text>
         </View>
         <View style={styles.footer}>
-          <Pressable style={styles.button}>
+          <Pressable style={styles.button} onPress={() => navigation.navigate('Home' as never)}>
             <Text style={styles.btnText}>Login</Text>
           </Pressable>
         </View>
