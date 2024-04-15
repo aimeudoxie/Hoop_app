@@ -2,8 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput, TouchableOpacity } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Profile() {
+  const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
         'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -29,9 +31,9 @@ export default function Profile() {
                 <Text style={styles.h2}>Welcome</Text>
         <Text style={styles.h1}>Diane</Text>
         </View>
-        <View style={styles.notification}>
+        <TouchableOpacity style={styles.notification}  onPress={() => navigation.navigate('Home' as never)}>
             <Image source={require('../assets/Logout.png')}/>
-        </View>
+        </TouchableOpacity>
         </View>
        
         </ImageBackground>
@@ -39,7 +41,7 @@ export default function Profile() {
 
       <View style={styles.contentcontainer}>
         <View>
-            <View style={styles.row}>
+        <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('EditProfile' as never)}>
                 <Image
                 source={require('../assets/Profileicon.png')}>
                 </Image>
@@ -47,8 +49,8 @@ export default function Profile() {
                 <Image
                 source={require('../assets/rightarrow.png')}>
                 </Image>
-                </View>  
-                <View style={styles.row}>
+                </TouchableOpacity>  
+                <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('UpgradePro' as never)}>
                 <Image
                 source={require('../assets/Discount.png')}>
                 </Image>
@@ -56,7 +58,7 @@ export default function Profile() {
                 <Image
                 source={require('../assets/rightarrow.png')}>
                 </Image>
-                </View> 
+                </TouchableOpacity> 
                 <View style={styles.row}>
                 <Image
                 source={require('../assets/Document.png')}>
@@ -75,7 +77,7 @@ export default function Profile() {
                 source={require('../assets/rightarrow.png')}>
                 </Image>
                 </View> 
-                <View style={styles.row}>
+                <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('EditProfile' as never)}>
                 <Image
                 source={require('../assets/Setting.png')}>
                 </Image>
@@ -83,7 +85,7 @@ export default function Profile() {
                 <Image
                 source={require('../assets/rightarrow.png')}>
                 </Image>
-                </View>   
+                </TouchableOpacity>   
                 </View>
 
                 <TouchableOpacity style={styles.button}>

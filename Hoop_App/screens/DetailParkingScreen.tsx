@@ -5,10 +5,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import { LinearGradient } from 'expo-linear-gradient'; 
-
+import { useNavigation } from '@react-navigation/native';
 export default function DetailParking() {
   const [text, setText] = useState('');
-
+  const navigation = useNavigation();
   
   const [fontsLoaded] = useFontsExpo({ 
     'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -21,9 +21,9 @@ export default function DetailParking() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <View style={styles.back}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Home' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               <Text style={styles.text}>Details</Text>
           </View>
           <View style={{ top: '5%' }}>
@@ -59,7 +59,7 @@ export default function DetailParking() {
           <LinearGradient
               colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 1)','rgba(255, 255, 255, 1)']}
               style={styles.buttoncontainer} >
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TrackingPark' as never)}>
               <Text style={styles.buttontext}>Book now</Text>
           </TouchableOpacity>
           </LinearGradient>

@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import { LinearGradient } from 'expo-linear-gradient'; 
+import { useNavigation } from '@react-navigation/native';
 
 export default function Notification() {
+  const navigation = useNavigation();
   const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
     'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -19,9 +21,9 @@ export default function Notification() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <View style={styles.back}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               <Text style={styles.text}>Notifications</Text>
           </View>
           <Text style={styles.card_title}>Today</Text>
@@ -40,7 +42,7 @@ export default function Notification() {
             </View>
           </View>
           <View style={styles.card}>
-            <View style={styles.card_line}></View>
+            <View style={styles.card_line2}></View>
             <View style={styles.card_text}>
                 <View style={styles.card_subtext}><Text style={{fontFamily:'Avenirroman',fontSize:18,color:'rgba(45,45,45,0.6)'}} >Order Successful</Text><Text style={{fontFamily:'Avenir',fontSize:14,color:'rgba(45,45,45,0.3)'}}> 12:34</Text></View>
                 <Text style={{fontFamily:'Avenir',fontSize:14,color:'rgba(45,45,45,0.5)'}}>Congrats on your reserved parking space</Text>
@@ -48,7 +50,7 @@ export default function Notification() {
           </View>
           <Text style={styles.card_title}>June 12,2021</Text>
           <View style={styles.card}>
-            <View style={styles.card_line}></View>
+            <View style={styles.card_line2}></View>
             <View style={styles.card_text}>
                 <View style={styles.card_subtext}><Text style={{fontFamily:'Avenirroman',fontSize:18,color:'rgba(45,45,45,0.6)'}} >Order Successful</Text><Text style={{fontFamily:'Avenir',fontSize:14,color:'rgba(45,45,45,0.3)'}}> 12:34</Text></View>
                 <Text style={{fontFamily:'Avenir',fontSize:14,color:'rgba(45,45,45,0.5)'}}>Congrats on your reserved parking space</Text>
@@ -94,6 +96,13 @@ const styles = StyleSheet.create({
         borderTopRightRadius:4,
         borderBottomRightRadius:4
     },
+    card_line2:{
+      backgroundColor:'#FFF3F3',
+      width:5,
+      height:'100%',
+      borderTopRightRadius:4,
+      borderBottomRightRadius:4
+  },
     card_text:{
         gap:13,
         flex:1,

@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
 import SpaceItem from '../components/Spaces';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
+  const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
         'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -23,12 +26,12 @@ export default function Home() {
         >
             <View style={styles.title}>
                 <View>
-        <Text style={styles.h1}>Hola, Diane👋🏻</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile' as never)}><Text style={styles.h1}>Hola, Diane👋🏻</Text></TouchableOpacity>
         <Text style={styles.h2}>Find an easy parking spot</Text>
         </View>
-        <View style={styles.notification}>
+        <TouchableOpacity style={styles.notification} onPress={() => navigation.navigate('Notification' as never)}>
             <Image source={require('../assets/Notification.png')}/>
-        </View>
+        </TouchableOpacity>
         </View>
         <View style={styles.search}>
         <Image source={require('../assets/Search.png')}/>
@@ -45,12 +48,12 @@ export default function Home() {
       <View style={styles.contentcontainer}>
         <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Categories</Text></View>
         <View style={styles.categories}>
-            <View style={styles.category_item}>
+            <TouchableOpacity style={styles.category_item} onPress={() => navigation.navigate('DetailCategory' as never)} >
                 <Image
                 source={require('../assets/image 31.png')}>
                 </Image>
                 <Text style={styles.categorysubtitle}>Car</Text>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.category_item}>
                 <Image
                 source={require('../assets/image 32.png')}>
@@ -71,12 +74,12 @@ export default function Home() {
                 </View>
         </View>
         <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
-        <SpaceItem 
+        <TouchableOpacity onPress={() => navigation.navigate('DetailHistory' as never)}><SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
-      />
+      /></TouchableOpacity>
          <SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"

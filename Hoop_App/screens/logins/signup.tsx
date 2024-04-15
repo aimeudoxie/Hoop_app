@@ -37,7 +37,7 @@ export default function Register() {
           </View>
         </View>
         <View style={styles.footer}>
-          <PrimaryButton label="Register" />
+          <PrimaryButton label="Register" onPress={() => navigation.navigate('Login' as never)}/>
           <Text style={{ color: Colors.light.muted }}>
             Have an account? {" "}
             <TouchableOpacity onPress={() => navigation.navigate('Login' as never)} > 
