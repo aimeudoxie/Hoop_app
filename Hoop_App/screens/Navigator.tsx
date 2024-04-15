@@ -21,6 +21,9 @@ import DetailHistory from './DetailHistory';
 import Home from './homeScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ForgotPassword from './logins/forgotpassword/forgot';
+import Home from './homeScreen';
+import DetailParking from './DetailParkingScreen';
+import TrackingPark from './TrackingPark';
 
 const Stack = createStackNavigator();
 
@@ -76,11 +79,17 @@ export function ChoosePlanScreen() {
 
 export function ParkingRouteScreen() {
   return <ParkingRoute />;
+
+
+export function DetailParkingScreen() {
+  return <DetailParking />;
+
 }
 
 export function TrackingParkScreen() {
   return <TrackingPark />;
 }
+
 
 export function NotificationScreen() {
   return <Notification />;
@@ -98,3 +107,5 @@ export function DetailHistoryScreen() {
 export function HomeScreen() {
   return <Home />;
 }
+
+

@@ -16,6 +16,9 @@ import Onboarding from './screens/OnboardingScreen';
 import TrackingPark from './screens/TrackingPark';
 import UpgradePro from './screens/UpgradePro';
 import ChoosePlan from './screens/Chooseplan';
+import Payment from './screens/Payments/Payment';
+import Details from './screens/Payments/PaymentDetails';
+import Success from './screens/Payments/PaymentSuccess';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {ChoosePlanScreen, DetailCategoryScreen, DetailHistoryScreen, EditProfileScreen, ExploreScreen, HistoryScreen, HomeScreen, NotificationScreen, ParkingRouteScreen, ProfileScreen, SignUpScreen, TrackingParkScreen, UpgradeProScreen} from './screens/Navigator';
@@ -30,12 +33,12 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      
    <Stack.Navigator screenOptions={{ headerShown: false }}>   
+
       <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="Register" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="PhoneLogin" component={PhoneLoginScreen} />
+      <Stack.Screen name="PhoneLogin" component={PhoneLoginScreen} />    
       <Stack.Screen name="ConfirmPassword" component={ConfirmPasswordScreen} />
       <Stack.Screen name="RequestCode" component={RequestCodeScreen} />
       <Stack.Screen name="RequestOTP" component={RequestOtpScreen} />
