@@ -74,19 +74,21 @@ export default function Home() {
                 </View>
         </View>
         <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
-        <TouchableOpacity onPress={() => navigation.navigate('History' as never)}><SpaceItem 
-        imageSource={require('../assets/image1.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      /></TouchableOpacity>
-         <SpaceItem 
+        <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}>
+          <SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
       />
-        
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}><SpaceItem 
+        imageSource={require('../assets/image1.png')}
+        title="Graha Mall"
+        address="123 Dhaka Street"
+        price="$7"
+      />
+        </TouchableOpacity>
       </View>
 
 

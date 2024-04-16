@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, {interpolate, Extrapolate, useSharedValue, useAnimatedStyle} from "react-native-reanimated";
 import { useNavigation } from '@react-navigation/native';
 
+
 export default function UpgradePro() {
 const navigation = useNavigation();
   const [fontsLoaded] = useFontsExpo({ 
@@ -22,15 +23,15 @@ const navigation = useNavigation();
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <View style={styles.back}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               <Text style={styles.text}>Upgrade</Text>
           </View>
           <Text style={{fontFamily:'Avenirroman',fontSize:24,textAlign:'center',width:'60%',marginTop:'10%',lineHeight:35}}>Get all the facilities by upgrading your account</Text>
           
           
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false} scrollEventThrottle={16} decelerationRate="fast" >
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false} scrollEventThrottle={16} decelerationRate="fast"  >
             <View style={styles.procontainer}>
                 <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Pro</Text>
                 <View>
@@ -123,11 +124,13 @@ const styles = StyleSheet.create({
     },
     procontainer:{
         backgroundColor:'#fff',
-        width:267,height:372,
+        width:267,
+        height:372,
         borderRadius:20,
         padding:25,
         justifyContent:'space-evenly',
-        marginTop:'5%'
+        marginTop:'5%',
+        margin:13
     },
     profeatures:{
         flexDirection:'row',

@@ -76,6 +76,7 @@ export default function ParkingRoute() {
         display: 'flex',
         alignItems: 'center',
         flex: 1,
+        marginTop:40
         
       },
   })

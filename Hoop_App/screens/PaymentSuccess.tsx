@@ -7,15 +7,19 @@ import { useNavigation } from "@react-navigation/native";
 import * as LocalAuthentication from "expo-local-authentication"
 import React, { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
-import ButtonWithProps from "../../aesthetics/buttonWithProps";
+import ButtonWithProps from "../aesthetics/buttonWithProps";
 import { faCommentDots, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-const PaymentSuccess: React.FC = () => {
 
+
+
+  
+const PaymentSuccess: React.FC = () => {
+    
     const navigation = useNavigation();
     const [fontsLoaded] = useFonts({
-        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
     });
     if (!fontsLoaded) return null;
     const screenWidth = Dimensions.get("screen").width;
@@ -31,7 +35,7 @@ const PaymentSuccess: React.FC = () => {
                     }
                 }
             >
-                <Image source={require("../../assets/paymentsuccess.png")} style={{ width: '90%', height: 300, resizeMode: 'contain', marginVertical: 30 }} />
+                <Image source={require("../assets/paymentsuccess.png")} style={{ width: '90%', height: 300, resizeMode: 'contain', marginVertical: 30 }} />
                 <View style={{ flexDirection: 'row', gap: 40, alignItems: "flex-start", marginTop: 30, marginBottom: 20, }}>
                     <Text style={{ fontFamily: 'Avenir', fontSize: 25 }}>Payment Successful</Text>
                 </View>
@@ -43,7 +47,7 @@ const PaymentSuccess: React.FC = () => {
 
                 <Text style={{ fontFamily: 'Avenirbold', marginTop: 70, fontSize: 17 }}>Receipt</Text>
                 <View style={{ flexDirection: 'row', gap: 40, marginVertical: 20 }}>
-                    <TouchableOpacity style={{ width: 50 }}>
+                    <TouchableOpacity style={{ width: 50 }} >
                         <ButtonWithProps icon={faEnvelope} color={"white"} textColor="#F43939"></ButtonWithProps>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: 50 }}>
@@ -51,8 +55,8 @@ const PaymentSuccess: React.FC = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={{width:"100%", justifyContent: "center", alignItems:"center"}}>
-                    <TouchableOpacity style={{ width: '80%' }}>
-                        <ButtonWithProps title="Back to Home" color={"black"} textColor="#fff"></ButtonWithProps>
+                    <TouchableOpacity style={{ width: '80%' }} onPress={() => navigation.navigate('Home' as never)} >
+                        <ButtonWithProps title="Back to Home" color={"#130F26"} textColor="#fff"></ButtonWithProps>
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>

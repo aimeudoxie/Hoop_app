@@ -1,12 +1,16 @@
-import LayoutHeader from "../../aesthetics/header";
-import { Text } from "../../aesthetics/design";
-import Colors from "../../aesthetics/Colors";
-import Sizes from "../../aesthetics/Sizes";
+import LayoutHeader from "../aesthetics/header";
+import { Text } from "../aesthetics/design";
+import Colors from "../aesthetics/Colors";
+import Sizes from "../aesthetics/Sizes";
 import { router } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
+
+  
 export default function Details() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,7 +24,7 @@ export default function Details() {
       <View style={styles.rectangle}>
         <Text style={styles.txt}>Mobile Banking</Text>
         <Image
-          source={require("../../assets/arrow.png")}
+          source={require("../assets/arrow.png")}
           style={styles.img}
         />
       </View>
@@ -28,13 +32,13 @@ export default function Details() {
         <View style={styles.message}>
           <Text>Credit Card</Text>
           <Image
-            source={require("../../assets/Arrowup.png")}
+            source={require("../assets/Arrowup.png")}
             style={styles.img}
           />
         </View>
         <View style={styles.cardNames}>
           <Image
-            source={require("../../assets/mastercard.png")}
+            source={require("../assets/mastercard.png")}
             style={styles.mastercard}
           />
           <Text style={styles.accountNumber}>ABC Bank **** 6189</Text>
@@ -42,43 +46,41 @@ export default function Details() {
         </View>
         <View style={styles.cardNames}>
           <Image
-            source={require("../../assets/visa.png")}
+            source={require("../assets/visa.png")}
             style={styles.visaIcon}
           />
           <Text style={styles.accountNumber}>ABC Bank **** 6189</Text>
         </View>
         <View style={styles.add}>
-          <Image source={require("../../assets/add.png")} />
+          <Image source={require("../assets/add.png")} />
           <Text style={styles.text}>Add new card</Text>
         </View>
       </View>
       <View style={styles.rectangle}>
         <Text style={styles.txt}>Google Play</Text>
         <Image
-          source={require("../../assets/arrow.png")}
+          source={require("../assets/arrow.png")}
           style={styles.img}
         />
       </View>
       <View style={styles.rectangle}>
         <Text style={styles.txt}>Debit Card</Text>
         <Image
-          source={require("../../assets/arrow.png")}
+          source={require("../assets/arrow.png")}
           style={styles.img}
         />
       </View>
       <View style={styles.messages}>
         <Text style={styles.sendEmail}>Send receipt to your email</Text>
         <Image
-          source={require("../../assets/on.png")}
+          source={require("../assets/on.png")}
           style={styles.icon}
         />
       </View>
       <View style={styles.button}>
         <TouchableOpacity
           style={styles.btn}
-          onPress={() => {
-            router.push("/payment/success");
-          }}
+          onPress={() => navigation.navigate('PaymentSuccess' as never)}
         >
           <Text style={styles.btnText}>Pay Now</Text>
         </TouchableOpacity>
