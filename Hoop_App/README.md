@@ -161,59 +161,6 @@ We hope you find Hoop convenient and efficient for finding parking spots. Enjoy 
 
 
   
-
-  ## Contribution
- 
-  Contribution Guidelines:
-
-Thank you for considering contributing to the Hoop Parking App! Contributions from users like you help improve the app for everyone. To contribute, please follow these guidelines:
-
-Fork the Repository:
-
-Fork the repository to your GitHub account.
-Clone the Repository:
-
-Clone the forked repository to your local machine using git clone.
-Create a Branch:
-
-Create a new branch for your contribution using git checkout -b feature/<feature-name>.
-Make Changes:
-
-Implement your desired changes or add new features.
-Test Your Changes:
-
-Test your changes locally to ensure they work as expected.
-Commit Your Changes:
-
-Commit your changes with descriptive commit messages using git commit -m "Your message".
-Push Changes:
-
-Push your changes to your forked repository with git push origin feature/<feature-name>.
-Create a Pull Request:
-
-Once you have pushed your changes, create a pull request (PR) from your forked repository to the main repository.
-Provide a detailed description of your changes in the PR.
-Review and Iterate:
-
-Collaborate with other contributors and address any feedback or comments on your PR.
-Make necessary changes based on feedback and push them to the same branch in your forked repository.
-Merge Pull Request:
-
-Once your PR has been reviewed and approved, it will be merged into the main repository by the project maintainers.
-Thank You:
-
-Thank you for your contribution! Your efforts help make the Hoop Parking App better for everyone.
-Happy Contributing!
-
-
-
-
-
-
-
-  
-
-
   
 
   ## Tests
