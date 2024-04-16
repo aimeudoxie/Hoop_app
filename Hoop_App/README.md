@@ -70,7 +70,8 @@ For inquiries, suggestions, or support, please contact us at ndahiropacific@gmai
 
   
 
-  
+  Figma Design:
+  <a href="https://www.figma.com/file/2ckE95Ue1PralQANcovEv9/Hoop---Parking-Booking-UI-KIT-(Community)?type=design&node-id=0%3A1&mode=design&t=cJajB7HPAlERrALo-1">
   
 
   <p align="center">
