@@ -7,9 +7,9 @@ import PhoneLogin from './logins/LoginWithPhone';
 import RequestOTP from './logins/forgotpassword/Request-otp'; 
 import ConfirmForgotPassword from './logins/forgotpassword/confirmation'; 
 import RequestCode from './logins/forgotpassword/Request-code';
-import History from './Explorescreen';
+import History from './Historyscreen';
 import EditProfile from './EditProfileScreen';
-import Explore from './Historyscreen';
+import Explore from './Explorescreen';
 import UpgradePro from './UpgradePro';
 import ChoosePlan from './Chooseplan';
 import ParkingRoute from './parkingRouteScreen';
@@ -18,12 +18,11 @@ import Notification from './NotificationScreen';
 import Profile from './profilescreen';
 import DetailCategory from './DetailCategoryScreen';
 import DetailHistory from './DetailHistory';
-import Home from './homeScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ForgotPassword from './logins/forgotpassword/forgot';
 import Home from './homeScreen';
 import DetailParking from './DetailParkingScreen';
-import TrackingPark from './TrackingPark';
+
 
 const Stack = createStackNavigator();
 
@@ -79,7 +78,7 @@ export function ChoosePlanScreen() {
 
 export function ParkingRouteScreen() {
   return <ParkingRoute />;
-
+}
 
 export function DetailParkingScreen() {
   return <DetailParking />;

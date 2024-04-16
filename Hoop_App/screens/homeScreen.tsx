@@ -74,7 +74,7 @@ export default function Home() {
                 </View>
         </View>
         <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailHistory' as never)}><SpaceItem 
+        <TouchableOpacity onPress={() => navigation.navigate('History' as never)}><SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"

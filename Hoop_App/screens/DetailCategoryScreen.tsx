@@ -5,8 +5,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import SpaceItem from '../components/Spaces';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export default function DetailCategory() {
+  const navigation = useNavigation();
   const [fontsLoaded] = useFontsExpo({ 
     'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
     'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
@@ -18,9 +21,9 @@ export default function DetailCategory() {
   return (
     <View style={styles.container}>
         <View style={styles.header}>
-        <View style={styles.back}>
+        <TouchableOpacity style={styles.back}  onPress={() => navigation.navigate('Home' as never)}>
         <Image source={require('../assets/ArrowLeft.png')}/>
-        </View>
+        </TouchableOpacity>
         <Text style={styles.text}>Detailed Category</Text>
         <View style={styles.filter}>
         <Image source={require('../assets/Filter 3.png')}/>

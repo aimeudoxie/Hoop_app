@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import { LinearGradient } from 'expo-linear-gradient'; 
+import { useNavigation } from '@react-navigation/native';
 
 export default function DetailHistory() {
+    const navigation = useNavigation();
   const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
     'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -19,9 +21,9 @@ export default function DetailHistory() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <View style={styles.back}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Home' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               <Text style={styles.text}>Detail History</Text>
           </View>
           <View style={{ top: '5%' }}>
