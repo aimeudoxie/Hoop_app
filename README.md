@@ -47,7 +47,7 @@ For inquiries, suggestions, or support, please contact us at ndahiropacific@gmai
   
 
   <p align="center">
-    <img alt="Screenshot of Hoop Parking App interface" [Screenshot] src="../Hoop_App/Hoop-App.png"><br>
+    <img alt="Screenshot of Hoop Parking App interface" [Screenshot] src="./Hoop_App/Hoop-App.png"><br>
   Hoop-App.png
   </p>
   
