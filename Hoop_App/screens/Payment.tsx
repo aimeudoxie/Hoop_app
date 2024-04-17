@@ -1,12 +1,25 @@
-import LayoutHeader from "../../aesthetics/header";
-import { Text } from "../../aesthetics/design";
-import Colors from "../../aesthetics/Colors";
-import Sizes from "../../aesthetics/Sizes";
+import LayoutHeader from "../aesthetics/header";
+import { Text } from "../aesthetics/design";
+import Colors from "../aesthetics/Colors";
+import Sizes from "../aesthetics/Sizes";
+import { useFonts as useFontsExpo } from 'expo-font';
 import { router } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
+
+ 
 export default function Payment() {
+  const navigation = useNavigation();
+  const [fontsLoaded] = useFontsExpo({ 
+    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf') ,
+  });
+  if (!fontsLoaded) {
+    return null; 
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,16 +32,16 @@ export default function Payment() {
       </View>
       <View style={styles.card}>
         <View style={styles.images}>
-          <Image source={require("../../assets/mall3.png")} />
+          <Image source={require("../assets/mall3.png")} />
         </View>
         <Text style={styles.title}>Graha Mall</Text>
         <Text style={styles.bodyMessage}>123 Dhaka Street</Text>
         <View style={styles.icons}>
           <Text style={styles.background}>
-            <Image source={require("../../assets/location1.png")} /> A-6
+            <Image source={require("../assets/location1.png")} /> A-6
           </Text>
           <Text style={styles.background}>
-            <Image source={require("../../assets/clock.png")} /> 4 hours
+            <Image source={require("../assets/clock.png")} /> 4 hours
           </Text>
         </View>
       </View>
@@ -54,9 +67,7 @@ export default function Payment() {
       <View style={styles.button}>
         <TouchableOpacity
           style={styles.btn}
-          onPress={() => {
-            router.push("/payment/details");
-          }}
+          onPress={() => navigation.navigate('PaymentDetails' as never)}
         >
           <Text style={styles.btnText}>Pay Now</Text>
         </TouchableOpacity>
@@ -69,7 +80,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignContent: "center",
-    justifyContent: "center",
     backgroundColor: "#F4F4FA",
   },
   bodyMessage: {
@@ -81,8 +91,8 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingLeft: 30,
-    marginTop: 25,
     marginBottom: 10,
+    marginTop:60
   },
   use: {
     color: "#F43939",
@@ -103,7 +113,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.dark.text,
     marginLeft: 30,
     marginRight: 30,
-
     marginBottom: 15,
     padding: 30,
     borderRadius: Sizes.sm1x,

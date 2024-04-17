@@ -21,7 +21,7 @@ export default function Notification() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Home' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Notifications</Text>

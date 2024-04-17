@@ -2,7 +2,13 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
+
+
+
 export default function TrackingPark() {
+    
+  const navigation = useNavigation();
     const [fontsLoaded] = useFontsExpo({ 
         'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
         'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
@@ -16,9 +22,9 @@ export default function TrackingPark() {
         <View style={styles.container}>
             <ImageBackground source={require('../assets/maps.png')} style={styles.imageBackground}>
             <View style={styles.header}>
-              <View style={styles.back}>
+            <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={styles.back}>
                   <Image source={require('../assets/ArrowLeft.png')} />
-              </View>
+              </TouchableOpacity>
               
           </View>
           <View style={{width:'100%',alignItems:'flex-end',height:'40%',justifyContent:'flex-start'}}>
@@ -63,7 +69,7 @@ export default function TrackingPark() {
 
             <View style={styles.btncontainer}>
             <View style={styles.attention}><Image source={require('../assets/Infocircle.png')}></Image></View>
-            <TouchableOpacity style={styles.button}><Text style={{fontFamily:'Avenir',color:'#fff',fontSize:16}} >Start Now</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('ParkingRoute' as never)}><Text style={{fontFamily:'Avenir',color:'#fff',fontSize:16}} >Start Now</Text></TouchableOpacity>
           </View>
           </View>
           

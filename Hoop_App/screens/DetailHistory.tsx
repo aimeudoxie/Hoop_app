@@ -21,7 +21,7 @@ export default function DetailHistory() {
   return (
     <><View style={styles.container}>
           <View style={styles.header}>
-              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Home' as never)}>
+              <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('History' as never)}>
                   <Image source={require('../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Detail History</Text>

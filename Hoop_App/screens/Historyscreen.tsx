@@ -2,8 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Explore() {
+    const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
         'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
@@ -12,7 +15,7 @@ export default function Explore() {
       });
       if (!fontsLoaded) {
         return null; 
-      }
+      } 
   return (
     <View style={styles.container}>
         <Text style={styles.h1}>History</Text>
@@ -32,7 +35,7 @@ export default function Explore() {
         </View>
     
         <Text style={styles.subtitle}>Recently</Text>
-        <View style={styles.Spaces}>
+        <TouchableOpacity style={styles.Spaces}  onPress={() => navigation.navigate('DetailHistory' as never)}>
             <Image 
             source={require('../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
@@ -55,8 +58,8 @@ export default function Explore() {
                 <Text style={{color:'rgba(45,45,45,0.5)',}}>12 Aug</Text>
                 </View>         
 
-        </View>
-        <View style={styles.Spaces}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.Spaces}  onPress={() => navigation.navigate('DetailHistory' as never)}>
             <Image 
             source={require('../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
@@ -79,7 +82,7 @@ export default function Explore() {
                 <Text style={{color:'rgba(45,45,45,0.5)',}}>12 Aug</Text>
                 </View>         
 
-        </View>
+        </TouchableOpacity>
         <Text style={styles.subtitle}>This Week</Text>
         <View style={styles.Spaces}>
             <Image 

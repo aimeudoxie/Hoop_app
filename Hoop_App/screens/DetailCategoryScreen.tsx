@@ -37,13 +37,15 @@ export default function DetailCategory() {
         <Text style={styles.navigationtext}>Most Popular</Text>
         <Text style={styles.navigationtext}>Most Wanted</Text>
      </View> 
-        
+     <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}>  
      <SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
       />
+      </TouchableOpacity>
+      
       <SpaceItem 
         imageSource={require('../assets/image1.png')}
         title="Graha Mall"

@@ -59,7 +59,7 @@ export default function DetailParking() {
           <LinearGradient
               colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 1)','rgba(255, 255, 255, 1)']}
               style={styles.buttoncontainer} >
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TrackingPark' as never)}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ChooseSpace' as never)}>
               <Text style={styles.buttontext}>Book now</Text>
           </TouchableOpacity>
           </LinearGradient>

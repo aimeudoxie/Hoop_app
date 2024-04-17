@@ -18,10 +18,17 @@ import Notification from './NotificationScreen';
 import Profile from './profilescreen';
 import DetailCategory from './DetailCategoryScreen';
 import DetailHistory from './DetailHistory';
+import DetailParking from './DetailParkingScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ForgotPassword from './logins/forgotpassword/forgot';
 import Home from './homeScreen';
-import DetailParking from './DetailParkingScreen';
+import Payment from './Payment';
+import Details from './PaymentDetails';
+import PaymentSuccess from './PaymentSuccess';
+import ShowMaps from './ShowMaps';
+import Book from './Book';
+import BookDetail from './BookDetail';
+import ChooseSpace from './ChooseSpace';
 
 
 const Stack = createStackNavigator();
@@ -106,5 +113,25 @@ export function DetailHistoryScreen() {
 export function HomeScreen() {
   return <Home />;
 }
+export function PaymentScreen() {
+  return <Payment />;
+}
 
-
+export function PaymentDetailsScreen() {
+  return <Details />;
+}
+export function PaymentSuccessScreen() {
+  return <PaymentSuccess />;
+}
+export function ShowMapsScreen() {
+  return <ShowMaps />;
+}
+export function BookScreen() {
+  return <Book />;
+}
+export function BookDetailScreen() {
+  return <BookDetail />;
+}
+export function ChooseSpaceScreen() {
+  return <ChooseSpace />;
+}
