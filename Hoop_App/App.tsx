@@ -38,18 +38,14 @@ import ChooseSpace from './screens/ChooseSpace';
 
 const Stack = createStackNavigator();
 export default function App() {
-  return (<NavigationContainer>
-    
-    
-      
+  return (
+    <NavigationContainer>
    <Stack.Navigator screenOptions={{ headerShown: false }}>
    <Stack.Screen name="Onboarding" component={Onboarding} />
    <Stack.Screen name="ShowMaps" component={ShowMapsScreen} />
    <Stack.Screen name="DetailParking" component={DetailParkingScreen} />
-   
    <Stack.Screen name="UpgradePro" component={UpgradeProScreen} />
    <Stack.Screen name="Home" component={HomeScreen} />
-      
       <Stack.Screen name="Register" component={SignUpScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="PhoneLogin" component={PhoneLoginScreen} />    
@@ -67,7 +63,6 @@ export default function App() {
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="DetailCategory" component={DetailCategoryScreen} />
       <Stack.Screen name="DetailHistory" component={DetailHistoryScreen} />
-    
       <Stack.Screen name="Payment" component={PaymentScreen} />
       <Stack.Screen name="PaymentDetails" component={PaymentDetailsScreen} />
       <Stack.Screen name="PaymentSuccess" component={PaymentSuccessScreen} />
@@ -79,6 +74,7 @@ export default function App() {
   </Stack.Navigator> 
  
   </NavigationContainer>
+  
  
 );
 }
