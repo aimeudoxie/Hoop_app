@@ -4,14 +4,16 @@ import Colors from "../aesthetics/Colors";
 import Sizes from "../aesthetics/Sizes";
 import { useFonts as useFontsExpo } from 'expo-font';
 import { router } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { TextInput } from "../aesthetics/inputs";
 
 
  
 export default function Payment() {
   const navigation = useNavigation();
+  const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
     'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
     'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
@@ -46,7 +48,7 @@ export default function Payment() {
         </View>
       </View>
       <View style={styles.rectangle}>
-        <Text style={styles.txt}>Input voucher code</Text>
+        <TextInput style={styles.txt} placeholder="Input voucher code" placeholderTextColor={'#2D2D2D'}  onChangeText={newText => setText(newText)}></TextInput>
         <Text style={styles.use}>Use</Text>
       </View>
       <View style={styles.card}>
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
   bodyMessage: {
     color: "#2D2D2D",
     opacity: 0.5,
-    fontSize: Sizes.sm,
+    fontSize: Sizes.md,
     textAlign: "center",
     marginBottom: 10,
   },
@@ -96,12 +98,15 @@ const styles = StyleSheet.create({
   },
   use: {
     color: "#F43939",
+    marginTop:15
   },
   txt: {
     fontSize: Sizes.md2x,
-    marginRight: 30,
+    
     color: "#2D2D2D",
     opacity: 0.2,
+    width:'80%',
+    height: 50,
   },
   title: {
     color: "#2D2D2D",
@@ -146,8 +151,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.dark.text,
     flexDirection: "row",
     justifyContent: "space-around",
-    width: 318,
-    height: 54,
+    
+    width: '85%',
+    height: 64,
     padding: 10,
     marginLeft: 30,
     marginBottom: 15,

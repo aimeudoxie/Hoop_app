@@ -33,7 +33,7 @@ const ChooseSpace: React.FC = () => {
                 </Pressable>
                 <Text style={{ fontFamily: 'Avenirroman', fontSize: 22 }}>Choose Space</Text>
             </View>
-            <ScrollView horizontal >
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} >
                 <View style={{ flexDirection: "row", gap: 20, marginLeft: 40,  }}>
                     <View style={{ backgroundColor: "#F43939", padding: 5, paddingHorizontal: 10, borderRadius: 15, justifyContent: "center",width:85,height:34,alignItems:'center' }}>
                         <Text style={{ fontFamily: "Avenir", color: "white" }}>1st Floor</Text>

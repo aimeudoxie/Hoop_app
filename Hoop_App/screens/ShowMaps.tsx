@@ -22,11 +22,11 @@ export default function ShowMaps() {
     return(
         <>
         <View style={styles.container}>
-           
+           <View>
             <ImageBackground source={require('../assets/maps2.png')} style={styles.imageBackground}>
                 
             <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={styles.back}>
+            <TouchableOpacity onPress={() => navigation.navigate('DetailCategory' as never)} style={styles.back}>
                   <Image source={require('../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={styles.back}>
@@ -51,6 +51,16 @@ export default function ShowMaps() {
                 </ScrollView>   
           </View>
             </ImageBackground>
+            </View>
+            <View style={styles.search}>
+            <Image source={require('../assets/Search.png')}/>
+        <TextInput  
+        placeholder='Search'
+        onChangeText={newText => setText(newText)}
+        style={styles.searchinput}
+        placeholderTextColor='black'
+        />
+            </View>
            
 
             </View>
@@ -69,6 +79,7 @@ const styles = StyleSheet.create({
         width:'85%',
         flexDirection:'row',
         gap:20,
+        padding:10,
         color:'#fff',
         alignItems:'center',
         justifyContent:'flex-start',
@@ -110,8 +121,7 @@ const styles = StyleSheet.create({
     imageBackground: {
         flex: 1,
         width: '100%',
-        height: '85%',
-        resizeMode: 'cover', 
+        height: '85%', 
         display:'flex',
         justifyContent:'center',
         alignItems:'center'
@@ -122,7 +132,6 @@ container: {
     width:'100%',
     display: 'flex',
     alignItems: 'center',
-    
     marginTop: 40, 
     backgroundColor:'#F4F4FA'
    

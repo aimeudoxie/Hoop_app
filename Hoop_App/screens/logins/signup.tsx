@@ -1,6 +1,6 @@
 import { Link, Text } from "../../aesthetics/design";
 import { PrimaryButton } from "../../aesthetics/designedbtns";
-import { PasswordInput, PhoneInput, TextInput } from "../../aesthetics/inputs";
+import { PasswordInput, PhoneInput, TextInput, PasswordAuth } from "../../aesthetics/inputs";
 import Colors from "../../aesthetics/Colors";
 import Sizes from "../../aesthetics/Sizes";
 import { StatusBar } from "expo-status-bar";
@@ -8,6 +8,7 @@ import React from "react";
 import { ImageBackground, StyleSheet, View, TouchableOpacity } from "react-native";
 import  Onboarding from '../OnboardingScreen';
 import { useNavigation } from '@react-navigation/native';
+
 
 
 export default function Register() {
@@ -32,7 +33,7 @@ export default function Register() {
           <View>
             <TextInput placeholder="Email" inputMode="email" />
             <PasswordInput placeholder="Password" secureTextEntry />
-            <PasswordInput placeholder="Password Authentication" />
+            <PasswordAuth placeholder="Password Authentication" />
             <PhoneInput placeholder="Phone number" returnKeyType="done" />
           </View>
         </View>

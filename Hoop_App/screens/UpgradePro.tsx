@@ -33,7 +33,7 @@ const navigation = useNavigation();
           
           <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false} scrollEventThrottle={16} decelerationRate="fast"  >
             <View style={styles.procontainer}>
-                <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Pro</Text>
+                <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Free</Text>
                 <View>
                 <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
@@ -56,7 +56,7 @@ const navigation = useNavigation();
                 </View>
             </View>
             <View style={styles.procontainer}>
-                <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Pro</Text>
+                <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Advanced</Text>
                 <View>
                 <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
