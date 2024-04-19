@@ -64,11 +64,10 @@ export default function DetailCategory() {
         address="123 Dhaka Street"
         price="$7"
       />   
-      <View style={styles.location}>
+      <TouchableOpacity style={styles.location} onPress={() => navigation.navigate('ShowMaps' as never)}>
         <Image source={require('../assets/location.png')}>
-
         </Image>
-      </View>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         alignItems:'flex-end',
         bottom:'7%',
-        right:'7%'
+        right:'-40%'
 
 
     },

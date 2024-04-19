@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: Sizes.xl2x,
     marginHorizontal: Sizes.sm,
+    color:'red'
   },
   icon: {
     position: "relative",

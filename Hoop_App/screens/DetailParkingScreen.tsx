@@ -28,9 +28,9 @@ export default function DetailParking() {
           </View>
           <View style={{ top: '5%' }}>
               <Image source={require('../assets/image4.png')} style={{ width: 315, height: 193 }} />
-              <View style={styles.location}>
+              <TouchableOpacity style={styles.location} onPress={() => navigation.navigate('TrackingPark' as never)}>
                   <Image source={require('../assets/location.png')} />
-              </View>
+              </TouchableOpacity>
           </View>
           <View style={{ top: '15%' }}>
               <Text style={styles.h1}>Graha Mall</Text>

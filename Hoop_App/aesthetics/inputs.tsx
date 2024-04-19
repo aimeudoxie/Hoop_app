@@ -37,16 +37,31 @@ export function PasswordInput(props: TextInputProps) {
   const [showPassword, setShowPassword] = React.useState(false);
   return (
     <View style={styles.passwordContainer}>
-      <Icon
-        name={showPassword ? "eye" : "eye-off"}
-        onPress={() => setShowPassword((prev) => !prev)}
-      />
+     
       <DefaultTextInput
         {...props}
         secureTextEntry
         placeholderTextColor={props.placeholderTextColor ?? colors.muted} // Use colors.muted instead of Colors.light.muted
         style={[styles.input, props.style, { marginBottom: 0 }]}
-      />
+      /> 
+      <Icon
+      name={showPassword ? "eye" : "eye-off"}
+      onPress={() => setShowPassword((prev) => !prev)} style={{position:'absolute',right:20,top:20}}
+    />
+    </View>
+  );
+} 
+export function PasswordAuth(props: TextInputProps) {
+  const [showPasswordAuth, setShowPasswordAuth] = React.useState(false);
+  return (
+    <View style={styles.passwordContainer}>
+     
+      <DefaultTextInput
+        {...props}
+        secureTextEntry
+        placeholderTextColor={props.placeholderTextColor ?? colors.muted} // Use colors.muted instead of Colors.light.muted
+        style={[styles.input, props.style, { marginBottom: 0 }]}
+      /> 
     </View>
   );
 }
