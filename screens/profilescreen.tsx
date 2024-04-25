@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground,Image,TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground,Image,TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
 import { useNavigation } from '@react-navigation/native';
+import { useUserContext } from '../contexts/userContext';
+import { account } from '../Appwrite/appwrite';
 
 export default function Profile() {
+  const { user} = useUserContext(); 
   const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
@@ -15,6 +18,18 @@ export default function Profile() {
       if (!fontsLoaded) {
         return null; 
       }
+      const handleLogout = async () => {
+          try {
+            const current=user?.sessionId;
+              await account.deleteSession(current);
+              Alert.alert("Logout successful");
+              navigation.navigate('Login' as never)
+          } catch (error) {
+            console.error('Error logging out:', error);
+          }
+        };
+      
+      
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -29,9 +44,9 @@ export default function Profile() {
                 </Image>
                 <View style={{flex:1}}>
                 <Text style={styles.h2}>Welcome</Text>
-        <Text style={styles.h1}>Diane</Text>
+        <Text style={styles.h1}>{user?.name}</Text>
         </View>
-        <TouchableOpacity style={styles.notification}  onPress={() => navigation.navigate('Home' as never)}>
+        <TouchableOpacity style={styles.notification}  onPress={handleLogout}>
             <Image source={require('../assets/Logout.png')}/>
         </TouchableOpacity>
         </View>

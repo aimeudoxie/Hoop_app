@@ -39,11 +39,13 @@ import 'react-native-gesture-handler';
 import Book from './screens/Book';
 import BookDetail from './screens/BookDetail';
 import ChooseSpace from './screens/ChooseSpace';
+import { UserProvider } from './contexts/userContext';
 
 
 const Stack = createStackNavigator();
 export default function App() {
   return (
+    <UserProvider>
     <NavigationContainer>
    <Stack.Navigator screenOptions={{ headerShown: false }}>
    <Stack.Screen name="Onboarding" component={Onboarding} />
@@ -79,7 +81,7 @@ export default function App() {
   </Stack.Navigator> 
  
   </NavigationContainer>
-  
+  </UserProvider>
  
 );
 }

@@ -16,12 +16,14 @@ import {
 import { Client, Account, ID,Databases } from 'react-native-appwrite';
 import { router } from "expo-router";
 import { account } from "../../Appwrite/appwrite";
+import { useUserContext } from '../../contexts/userContext';
 
 export default function Login() {
   const navigation = useNavigation();
   const [alert,setAlert]=useState<string>("")
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setUser } = useUserContext(); 
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -29,7 +31,14 @@ export default function Login() {
       return;
     }
     try {
-      await account.createEmailSession(email, password);
+      const session = await account.createEmailSession(email, password);
+      const userAccount = await account.get();
+      setUser({
+        email: userAccount.email,
+        name: userAccount.name, 
+        sessionId: session.$id,
+      });
+      
       Alert.alert("Login successful")
       navigation.navigate('Home' as never);
     } catch (error) {

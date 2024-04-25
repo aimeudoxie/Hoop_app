@@ -5,8 +5,11 @@ import { useFonts as useFontsExpo } from 'expo-font';
 import SpaceItem from '../components/Spaces';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useUserContext } from '../contexts/userContext';
+
 
 export default function Home() {
+  const { user } = useUserContext(); 
   const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
@@ -26,7 +29,7 @@ export default function Home() {
         >
             <View style={styles.title}>
                 <View>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile' as never)}><Text style={styles.h1}>Hola, Diane👋🏻</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile' as never)}><Text style={styles.h1}>Hola, {user?.name}👋🏻</Text></TouchableOpacity>
         <Text style={styles.h2}>Find an easy parking spot</Text>
         </View>
         <TouchableOpacity style={styles.notification} onPress={() => navigation.navigate('Notification' as never)}>

@@ -10,18 +10,6 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Client, Account, ID,Databases } from 'react-native-appwrite';
 import { router } from "expo-router";
 import { account } from "../../Appwrite/appwrite";
-
-//let client;
-//let account: { create: (arg0: any, arg1: string, arg2: string, arg3: string) => void; createEmailSession:(arg0: any, arg1: string,)=>void; updatePhone:(arg0: any, arg1: string,)=>void};
-//client = new Client();
-//client
-  //.setEndpoint('https://cloud.appwrite.io/v1')
- // .setProject('6626c4c8dc6c9eb635aa')
-
-
-//account = new Account(client);
-//const databases = new Databases(client);
-
 export default function Register() {
   const [alert,setAlert]=useState("")
   const [email, setEmail] = useState('');
@@ -38,7 +26,6 @@ export default function Register() {
     
       await account.create(ID.unique(),email, password,name);
       await account.createEmailSession(email,password);
-      console.log(phone)
       await account.updatePhone(phone,password)
 
       setAlert("New user registered successfully")
