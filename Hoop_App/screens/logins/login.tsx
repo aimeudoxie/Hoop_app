@@ -2,7 +2,7 @@ import Colors from "../../aesthetics/Colors";
 import Sizes from "../../aesthetics/Sizes";
 import { useNavigation } from '@react-navigation/native';
 import { Link } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import {
   ImageBackground,
   Pressable,
@@ -11,16 +11,32 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  Alert,
 } from "react-native";
+import { Client, Account, ID,Databases } from 'react-native-appwrite';
+import { router } from "expo-router";
+import { account } from "../../Appwrite/appwrite";
 
 export default function Login() {
   const navigation = useNavigation();
-  interface Slide {
-    id: string;
-    image: any;
-    title: string;
-    subtitle: string;
-  }
+  const [alert,setAlert]=useState<string>("")
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Please enter Email and Password.");
+      return;
+    }
+    try {
+      await account.createEmailSession(email, password);
+      Alert.alert("Login successful")
+      navigation.navigate('Home' as never);
+    } catch (error) {
+      Alert.alert("Invalid Email or Password")
+      console.log("unable to login ", error);
+    }
+  };
 
   const bgImage = require("../../assets/pattern.png");
   const [loginMethod, setLoginMethod] = React.useState("email");
@@ -33,7 +49,12 @@ export default function Login() {
       </View>
       <View style={styles.form}>
         <View style={{ flex: 1 }}>
-          {loginMethod === "email" ? <LoginWithEmail /> : <LoginWithPhone />}
+        <View>
+      <TextInput placeholder="Email" inputMode="email" value={email} onChangeText={(text) => setEmail(text)}  style={styles.input} />
+      <TextInput placeholder="Password" secureTextEntry  value={password}
+               onChangeText={(text) => setPassword(text)} style={styles.input} />
+      
+    </View>
           <Text style={styles.forgot}>
             Forgot Password?{" "}
             <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword' as never)} > 
@@ -42,7 +63,7 @@ export default function Login() {
           </Text>
         </View>
         <View style={styles.footer}>
-          <Pressable style={styles.button} onPress={() => navigation.navigate('Home' as never)}>
+          <Pressable style={styles.button} onPress={handleLogin}>
             <Text style={styles.btnText}>Login</Text>
           </Pressable>
         </View>
@@ -58,22 +79,7 @@ export default function Login() {
   );
 }
 
-function LoginWithEmail() {
-  return (
-    <View>
-      <TextInput placeholder="Email" inputMode="email" style={styles.input} />
-      <TextInput placeholder="Password" secureTextEntry style={styles.input} />
-    </View>
-  );
-}
-function LoginWithPhone() {
-  return (
-    <View>
-      <TextInput placeholder="Phone number" inputMode="tel" style={styles.input} />
-      <TextInput placeholder="Password" secureTextEntry style={styles.input} />
-    </View>
-  );
-}
+
 
 const styles = StyleSheet.create({
   container: {

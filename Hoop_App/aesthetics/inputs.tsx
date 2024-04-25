@@ -1,6 +1,7 @@
 import Colors from "./Colors";
 import Sizes from "./Sizes";
-import React from "react";
+import React, { useState } from "react";
+import PhoneInput from "react-native-phone-number-input";
 import {
   TextInput as DefaultTextInput,
   StyleSheet,
@@ -34,56 +35,52 @@ export function TextInput(props: TextInputProps) {
 }
 
 export function PasswordInput(props: TextInputProps) {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const toggleShowPassowrd = () => {
+    setShowPassword(!showPassword)
+}
   return (
     <View style={styles.passwordContainer}>
      
-      <DefaultTextInput
+     <TextInput 
         {...props}
-        secureTextEntry
+        
         placeholderTextColor={props.placeholderTextColor ?? colors.muted} // Use colors.muted instead of Colors.light.muted
         style={[styles.input, props.style, { marginBottom: 0 }]}
+        secureTextEntry={!showPassword}
       /> 
       <Icon
-      name={showPassword ? "eye" : "eye-off"}
-      onPress={() => setShowPassword((prev) => !prev)} style={{position:'absolute',right:20,top:20}}
+       onPress={toggleShowPassowrd}
+       name={showPassword ? "eye" : "eye-off"}
+        style={{position:'absolute',right:20,top:20}}
     />
     </View>
   );
 } 
+
 export function PasswordAuth(props: TextInputProps) {
   const [showPasswordAuth, setShowPasswordAuth] = React.useState(false);
   return (
     <View style={styles.passwordContainer}>
      
-      <DefaultTextInput
+      <PasswordInput
         {...props}
         secureTextEntry
-        placeholderTextColor={props.placeholderTextColor ?? colors.muted} // Use colors.muted instead of Colors.light.muted
+        placeholderTextColor={props.placeholderTextColor ?? colors.muted} 
         style={[styles.input, props.style, { marginBottom: 0 }]}
       /> 
     </View>
   );
 }
 
-export function PhoneInput(props: TextInputProps) {
+export function PhoneNumberInput(props: TextInputProps) {
   const phoneCode = "+62";
   return (
     <View style={styles.phoneInputContainer}>
-      <Text style={[styles.input, styles.phoneCode]}>{phoneCode}</Text>
-      <View
-        style={{
-          width: 2,
-          backgroundColor: colors.muted, // Use colors.muted instead of Colors.light.muted
-          marginVertical: Sizes.sm2x,
-        }}
-      />
-      <DefaultTextInput
-        {...props}
-        placeholderTextColor={props.placeholderTextColor ?? colors.muted} // Use colors.muted instead of Colors.light.muted
-        style={[styles.input, props.style, styles.phoneInput]}
-        keyboardType="phone-pad"
-      />
+     <PhoneInput
+
+     />
     </View>
   );
 }

@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { PasswordInput, PhoneInput } from "../../aesthetics/inputs";  
+import { PasswordInput, PhoneNumberInput } from "../../aesthetics/inputs";  
   
 export default function PhoneLogin() {
 
@@ -71,7 +71,7 @@ function LoginWithEmail() {
 function LoginWithPhone() {
   return (
     <View>
-      <PhoneInput placeholder="Phone number" returnKeyType="done" />
+      <PhoneNumberInput placeholder="Phone number" returnKeyType="done" />
       <TextInput placeholder="Password" secureTextEntry style={styles.input} />
     </View>
   );
