@@ -1,39 +1,52 @@
 import { Link, Text } from "../../aesthetics/design";
 import { PrimaryButton } from "../../aesthetics/designedbtns";
-import { PasswordInput, PhoneInput, TextInput, PasswordAuth } from "../../aesthetics/inputs";
+import { PasswordInput, PhoneNumberInput, TextInput, PasswordAuth } from "../../aesthetics/inputs";
 import Colors from "../../aesthetics/Colors";
 import Sizes from "../../aesthetics/Sizes";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { ImageBackground, StyleSheet, View, TouchableOpacity } from "react-native";
+import { ImageBackground, StyleSheet, View, TouchableOpacity, Alert } from "react-native";
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Client, Account, ID,Databases } from 'react-native-appwrite';
+import { router } from "expo-router";
+import { account } from "../../Appwrite/appwrite";
 
-let client;
-let account: { create: (arg0: any, arg1: string, arg2: string, arg3: string) => void; };
-client = new Client();
-client
-  .setEndpoint('https://cloud.appwrite.io/v1')
-  .setProject('6626c4c8dc6c9eb635aa')
-  .setPlatform('Eudoxie');
+//let client;
+//let account: { create: (arg0: any, arg1: string, arg2: string, arg3: string) => void; createEmailSession:(arg0: any, arg1: string,)=>void; updatePhone:(arg0: any, arg1: string,)=>void};
+//client = new Client();
+//client
+  //.setEndpoint('https://cloud.appwrite.io/v1')
+ // .setProject('6626c4c8dc6c9eb635aa')
 
 
-account = new Account(client);
-const databases = new Databases(client);
+//account = new Account(client);
+//const databases = new Databases(client);
 
 export default function Register() {
+  const [alert,setAlert]=useState("")
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
+  const [name, setName] = useState('');
   const navigation = useNavigation();
 
  
   const bgImage = require("../../assets/pattern.png");
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  async function register(email: string, password: string, phone: string) {
-     account.create(ID.unique(), email, password, phone);
-    } 
+  async function register(name: string, email: string, password: string, phone: string) {
+    
+      await account.create(ID.unique(),email, password,name);
+      await account.createEmailSession(email,password);
+      console.log(phone)
+      await account.updatePhone(phone,password)
+
+      setAlert("New user registered successfully")
+      Alert.alert("New user registered successfully")
+      router.push("screens/logins/signup");
+   }
+   
+    
   return (
     <View style={styles.container}>
       <StatusBar style="inverted" />
@@ -45,14 +58,17 @@ export default function Register() {
       <View style={styles.form}>
         <View style={{ flex: 1 }}>
           <View>
-            <TextInput placeholder="Email" inputMode="email" value={email} onChangeText={(text) => setEmail(text)} />
-            <PasswordInput placeholder="Password" value={password} secureTextEntry onChangeText={(text) => setPassword(text)} />
+          <TextInput placeholder="Email" inputMode="email" value={email} onChangeText={(text) => setEmail(text)} />
+          <TextInput placeholder="Name"  value={name} onChangeText={(text) => setName(text)} />
+
+            <PasswordInput placeholder="Password"  value={password}
+               onChangeText={(text) => setPassword(text)} />
             <PasswordAuth placeholder="Password Authentication" />
-            <PhoneInput placeholder="Phone number" returnKeyType="done" value={phone} onChangeText={(text) => setPhone(text)} />
+            <TextInput placeholder="Phone number" returnKeyType="done" value={phone} onChangeText={(phone) => setPhone(phone)} />
           </View>
         </View>
         <View style={styles.footer}>
-          <PrimaryButton label="Register"  onPress={()=> register(email, password,phone)}/>
+          <PrimaryButton label="Register"  onPress={()=> register(name, email, password,phone)}/>
           <Text style={{ color: Colors.light.muted }}>
             Have an account? {" "}
             <TouchableOpacity onPress={() => navigation.navigate('Login' as never)} > 

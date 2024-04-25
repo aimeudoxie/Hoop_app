@@ -21,7 +21,12 @@ import Details from './screens/PaymentDetails';
 import Success from './screens/PaymentSuccess';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {BookDetailScreen, BookScreen, ChoosePlanScreen, ChooseSpaceScreen, DetailCategoryScreen, DetailHistoryScreen, EditProfileScreen, ExploreScreen, HistoryScreen, HomeScreen, NotificationScreen, ParkingRouteScreen,  PaymentDetailsScreen, PaymentScreen, PaymentSuccessScreen, ProfileScreen, ShowMapsScreen, SignUpScreen, TrackingParkScreen, UpgradeProScreen} from './screens/Navigator';
+import {BookDetailScreen, BookScreen, ChoosePlanScreen,
+ChooseSpaceScreen, DetailCategoryScreen, DetailHistoryScreen, 
+EditProfileScreen, ExploreScreen, HistoryScreen, HomeScreen,
+NotificationScreen, ParkingRouteScreen,  PaymentDetailsScreen, 
+PaymentScreen, PaymentSuccessScreen, ProfileScreen, ShowMapsScreen,
+SignUpScreen, TrackingParkScreen, UpgradeProScreen} from './screens/Navigator';
 import { LoginScreen } from './screens/Navigator';
 import { RequestCodeScreen } from './screens/Navigator';
 import { RequestOtpScreen } from './screens/Navigator';
