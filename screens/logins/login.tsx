@@ -12,6 +12,7 @@ import {
   View,
   TouchableOpacity,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Client, Account, ID,Databases } from 'react-native-appwrite';
 import { router } from "expo-router";
@@ -24,13 +25,17 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useUserContext(); 
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    setLoading(true);
+
     if (!email || !password) {
       Alert.alert("Please enter Email and Password.");
       return;
     }
     try {
+      
       const session = await account.createEmailSession(email, password);
       const userAccount = await account.get();
       setUser({
@@ -38,7 +43,7 @@ export default function Login() {
         name: userAccount.name, 
         sessionId: session.$id,
       });
-      
+      setLoading(false);
       Alert.alert("Login successful")
       navigation.navigate('Home' as never);
     } catch (error) {
@@ -73,7 +78,12 @@ export default function Login() {
         </View>
         <View style={styles.footer}>
           <Pressable style={styles.button} onPress={handleLogin}>
-            <Text style={styles.btnText}>Login</Text>
+          {loading ? (
+                  <ActivityIndicator color="white" />
+                ) : (
+                  <Text style={styles.btnText}>Login</Text>
+                )}
+            
           </Pressable>
         </View>
         <View style={styles.bottomtext}>

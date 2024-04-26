@@ -1,17 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground,Image,TextInput } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { StyleSheet, Text, View, ImageBackground,Image,TextInput, ActivityIndicator } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
 import SpaceItem from '../components/Spaces';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { useUserContext } from '../contexts/userContext';
+import { databases } from '../Appwrite/appwrite';
+import { Query } from "react-native-appwrite/src";
 
+interface Parking {
+  id: string;
+  price: string;
+  title: string;
+  imageSource: string;
+  address: string;
+}
 
 export default function Home() {
   const { user } = useUserContext(); 
   const navigation = useNavigation();
     const [text, setText] = useState('');
+
     const [fontsLoaded] = useFontsExpo({ 
         'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
         'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
@@ -20,6 +30,37 @@ export default function Home() {
       if (!fontsLoaded) {
         return null; 
       }
+      const [parkings, setParkings] = useState<Parking[]>([]);
+
+      useEffect(() => {
+        const loadParkings = async () => {
+          if (parkings.length === 0) {
+            try {
+              const { documents } = await databases.listDocuments(
+                "662738669182cc6bdbf6",
+                "662a96529336abb20725",
+                [Query.limit(3)]
+              );
+    
+              const newParkings: Parking[] = documents.map((current: any) => ({
+                id: current.$id,
+                price: current.price,
+                address: current.address,
+                imageSource: current.photo,
+                title: current.name,
+              }));
+    
+              setParkings(newParkings);
+            } catch (error) {
+              console.error("Error loading parkings:", error);
+            }
+          }
+        };
+    
+        loadParkings();
+      }, [parkings]);
+      
+    
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -47,8 +88,8 @@ export default function Home() {
         </View>
         </ImageBackground>
       </View>
-
-      <View style={styles.contentcontainer}>
+<View  style={styles.contentcontainer}>
+      <ScrollView style={{width:'100%',padding:'5%'}}>
         <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Categories</Text></View>
         <View style={styles.categories}>
             <TouchableOpacity style={styles.category_item} onPress={() => navigation.navigate('DetailCategory' as never)} >
@@ -76,24 +117,38 @@ export default function Home() {
                 <Text style={styles.categorysubtitle}>Van</Text>
                 </View>
         </View>
-        <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}>
-          <SpaceItem 
-        imageSource={require('../assets/image1.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}><SpaceItem 
-        imageSource={require('../assets/image1.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />
-        </TouchableOpacity>
-      </View>
 
+
+        <View style={{alignItems:'flex-start',width:'85%'}}><Text style={styles.categorytitle}>Nearest Parking Spaces</Text></View>
+        
+       
+
+        {parkings.length === 0 ? 
+        (
+          <ActivityIndicator color="black" size="large" />
+        ) : (
+          parkings.map((parking) => {
+           
+            return (
+              <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)}
+              style={{width:'100%'}}>
+              <SpaceItem
+                key={parking.id}
+                imageSource={require('../assets/image1.png')}
+                title={parking.title}
+                address={parking.address}
+                price={parking.price}
+                
+              />
+               </TouchableOpacity>
+            );
+          })
+        )
+      }  
+     
+
+      </ScrollView>
+      </View>
 
       <StatusBar style="auto" />
     </View>
@@ -213,7 +268,7 @@ const styles = StyleSheet.create({
   contentcontainer: {
     backgroundColor: '#F4F4FA',
     flex: 1,
-    alignItems: 'center',
+    alignItems:'center',
     justifyContent:'center',
     width: '100%',
     height: '80%',
