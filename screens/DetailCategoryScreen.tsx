@@ -1,12 +1,22 @@
 
 
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, TextInput } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, ImageBackground, Image, TextInput, ActivityIndicator } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
 import SpaceItem from '../components/Spaces';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { databases } from '../Appwrite/appwrite';
+import { Query } from "react-native-appwrite/src";
+
+interface Parking {
+  id: string;
+  price: string;
+  title: string;
+  imageSource: string;
+  address: string;
+}
 
 export default function DetailCategory() {
   const navigation = useNavigation();
@@ -18,6 +28,36 @@ export default function DetailCategory() {
   if (!fontsLoaded) {
     return null; 
   }
+  const [parkings, setParkings] = useState<Parking[]>([]);
+
+  useEffect(() => {
+    const loadParkings = async () => {
+      if (parkings.length === 0) {
+        try {
+          const { documents } = await databases.listDocuments(
+            "662738669182cc6bdbf6",
+            "662a96529336abb20725",
+            [Query.limit(3)]
+          );
+
+          const newParkings: Parking[] = documents.map((current: any) => ({
+            id: current.$id,
+            price: current.price,
+            address: current.address,
+            imageSource: current.photo,
+            title: current.name,
+          }));
+
+          setParkings(newParkings);
+        } catch (error) {
+          console.error("Error loading parkings:", error);
+        }
+      }
+    };
+
+    loadParkings();
+  }, [parkings]);
+  
   return (
     <View style={styles.container}>
         <View style={styles.header}>
@@ -37,33 +77,30 @@ export default function DetailCategory() {
         <Text style={styles.navigationtext}>Most Popular</Text>
         <Text style={styles.navigationtext}>Most Wanted</Text>
      </View> 
-     <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}>  
-     <SpaceItem 
-        imageSource={require('../assets/image1.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />
-      </TouchableOpacity>
+     {parkings.length === 0 ? 
+        (
+          <ActivityIndicator color="black" size="large" />
+        ) : (
+          parkings.map((parking) => {
+            
+            return (
+              <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)}
+              style={{width:'100%'}}>
+              <SpaceItem
+                key={parking.id}
+                imageSource={require('../assets/image1.png')}
+                title={parking.title}
+                address={parking.address}
+                price={parking.price}
+                
+              />
+               </TouchableOpacity>
+            );
+          })
+        )
+      }  
       
-      <SpaceItem 
-        imageSource={require('../assets/image1.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />
-      <SpaceItem 
-        imageSource={require('../assets/image3.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />
-      <SpaceItem 
-        imageSource={require('../assets/image3.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />   
+       
       <TouchableOpacity style={styles.location} onPress={() => navigation.navigate('ShowMaps' as never)}>
         <Image source={require('../assets/location.png')}>
         </Image>
