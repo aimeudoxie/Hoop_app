@@ -23,9 +23,9 @@ export default function EditProfile() {
   ];
 
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
   if (!fontsLoaded) {
     return null; 
@@ -34,13 +34,13 @@ export default function EditProfile() {
     <><View style={styles.container}>
           <View style={styles.header}>
               <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Edit Profile</Text>
           </View>
           <View style={{marginTop:'10%',alignItems:'center'}} >
-            <Image source={require('../assets/profile.png')} style={styles.profile_image}/>
-            <View style={styles.edit_container}><Image source={require('../assets/Edit.png')}>
+            <Image source={require('../../assets/profile.png')} style={styles.profile_image}/>
+            <View style={styles.edit_container}><Image source={require('../../assets/Edit.png')}>
             </Image></View>
             </View>
           <View style={styles.input_container} >

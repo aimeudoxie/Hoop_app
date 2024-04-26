@@ -7,7 +7,7 @@ import { Navigator } from 'expo-router';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import {SignUpScreen} from './Navigator';
+import {SignUpScreen} from './navigator/Navigator';
 
 export default function Onboarding() {
   const navigation = useNavigation();

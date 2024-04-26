@@ -10,9 +10,9 @@ export default function ShowMaps() {
     const [text, setText] = useState('');
   const navigation = useNavigation();
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -23,14 +23,14 @@ export default function ShowMaps() {
         <>
         <View style={styles.container}>
            <View>
-            <ImageBackground source={require('../assets/maps2.png')} style={styles.imageBackground}>
+            <ImageBackground source={require('../../assets/maps2.png')} style={styles.imageBackground}>
                 
             <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.navigate('DetailCategory' as never)} style={styles.back}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={styles.back}>
-                  <Image source={require('../assets/location2.png')} />
+                  <Image source={require('../../assets/location2.png')} />
               </TouchableOpacity>
           </View>
           <View style={styles.contentContainer}> 
@@ -44,16 +44,16 @@ export default function ShowMaps() {
             <Text style={{fontFamily:'Avenir',fontSize:14,color:'rgba(45,45,45,0.5)'}}>123 Dhaka Street</Text>
             </View>  
             <ScrollView horizontal style={{marginTop:18}}>
-                <Image source={require('../assets/image5.png')} style={{margin:5}}></Image>
-                <Image source={require('../assets/image5.png')} style={{margin:5}}></Image>
-                <Image source={require('../assets/image5.png')} style={{margin:5}}></Image>
-                <Image source={require('../assets/image5.png')} style={{margin:5}}></Image>
+                <Image source={require('../../assets/image5.png')} style={{margin:5}}></Image>
+                <Image source={require('../../assets/image5.png')} style={{margin:5}}></Image>
+                <Image source={require('../../assets/image5.png')} style={{margin:5}}></Image>
+                <Image source={require('../../assets/image5.png')} style={{margin:5}}></Image>
                 </ScrollView>   
           </View>
             </ImageBackground>
             </View>
             <View style={styles.search}>
-            <Image source={require('../assets/Search.png')}/>
+            <Image source={require('../../assets/Search.png')}/>
         <TextInput  
         placeholder='Search'
         onChangeText={newText => setText(newText)}

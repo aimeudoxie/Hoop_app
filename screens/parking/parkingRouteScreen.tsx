@@ -6,9 +6,9 @@ import { useFonts as useFontsExpo } from 'expo-font';
 export default function ParkingRoute() {
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -17,7 +17,7 @@ export default function ParkingRoute() {
     <View style={styles.container}>
       
         <ImageBackground
-          source={require('../assets/Parkingimage.jpg')}
+          source={require('../../assets/Parkingimage.jpg')}
           style={styles.imageBackground}
         >
             <View style={styles.header}>
@@ -27,7 +27,7 @@ export default function ParkingRoute() {
                 </View>
                 <View style={{display:'flex', justifyContent:'space-between',alignItems:'center',height:'65%'}}>
                     <Image 
-                    source={require('../assets/Vector.png')}> 
+                    source={require('../../assets/Vector.png')}> 
                     </Image>
                     <Text style={styles.text3}>100 m</Text>
                 </View>

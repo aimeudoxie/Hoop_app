@@ -4,30 +4,31 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font'; 
-import SpaceItem from '../components/Spaces';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import SpaceItem from '../../components/Spaces';
 
-export default function DetailCategory() {
-  const navigation = useNavigation();
+export default function History() {
+  const [text, setText] = useState('');
+
+  
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
   if (!fontsLoaded) {
     return null; 
   }
   return (
     <View style={styles.container}>
-        <View style={styles.header}>
-        <TouchableOpacity style={styles.back}  onPress={() => navigation.navigate('Home' as never)}>
-        <Image source={require('../assets/ArrowLeft.png')}/>
-        </TouchableOpacity>
-        <Text style={styles.text}>Detailed Category</Text>
-        <View style={styles.filter}>
-        <Image source={require('../assets/Filter 3.png')}/>
-        </View>
+        <Text style={styles.h1}>Explore</Text>
+        <View style={styles.search}>
+        <Image source={require('../../assets/Search2.png')}/>
+        <TextInput  
+        placeholder='Search'
+        onChangeText={newText => setText(newText)}
+        style={styles.searchinput}
+        placeholderTextColor='rgba(45,45,45,0.4)'
+        />
         </View>
      <View style={styles.navigations}>
         <View style={styles.active}>
@@ -37,71 +38,37 @@ export default function DetailCategory() {
         <Text style={styles.navigationtext}>Most Popular</Text>
         <Text style={styles.navigationtext}>Most Wanted</Text>
      </View> 
-     <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={{width:'100%'}}>  
      <SpaceItem 
-        imageSource={require('../assets/image1.png')}
+        imageSource={require('../../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
       />
-      </TouchableOpacity>
-      
-      <SpaceItem 
-        imageSource={require('../assets/image1.png')}
+         <SpaceItem 
+        imageSource={require('../../assets/image1.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
       />
-      <SpaceItem 
-        imageSource={require('../assets/image3.png')}
+          <SpaceItem 
+        imageSource={require('../../assets/image3.png')}
         title="Graha Mall"
         address="123 Dhaka Street"
         price="$7"
       />
-      <SpaceItem 
-        imageSource={require('../assets/image3.png')}
-        title="Graha Mall"
-        address="123 Dhaka Street"
-        price="$7"
-      />   
-      <TouchableOpacity style={styles.location} onPress={() => navigation.navigate('ShowMaps' as never)}>
-        <Image source={require('../assets/location.png')}>
+      <View style={styles.location}>
+        <Image source={require('../../assets/location.png')}>
+
         </Image>
-      </TouchableOpacity>
+      </View>
+
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    text:{
-        fontFamily:'Avenirroman',
-        fontSize:20,
-        color:'#2D2D2D'
-    },
-    header:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'space-between',
-        width:'80%',
-        marginTop: 80,
-        },
-    filter:{
-        backgroundColor:'#EAEAF3',
-        padding:15,
-        borderRadius:12,
-        alignItems:'center',
-        justifyContent:'center',
-        width:'16%'
-    },
-    back:{
-        backgroundColor:'#EAEAF3',
-        padding:15,
-        borderRadius:12,
-        alignItems:'center',
-        justifyContent:'center',
-        width:'13%'
-    },
     location:{
         backgroundColor:'#081024',
         padding:15,
@@ -111,7 +78,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         alignItems:'flex-end',
         bottom:'7%',
-        right:'-40%'
+        right:'8%'
 
 
     },
@@ -159,8 +126,80 @@ const styles = StyleSheet.create({
        
         
     },
-
+    spaceimage:{
+        width:98,
+        height:104,
+    },
+    spacetitle:{
+        fontSize:18,
+        fontFamily:'Avenir'
+    },
+    spaceaddress:{
+        fontSize:14,
+        color:'rgba(45,45,45,0.5)',
+        fontFamily:'Avenir'
+    },
+    spaceprice:{
+        color:'#F43939',
+        fontFamily:'Avenir',
+        marginTop:'15%'
+    },
+    Spaces:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'flex-start',
+        backgroundColor:'#fff',
+        gap:10,
+        width:'85%',
+        height:126,
+        padding:10,
+        borderRadius:15,
+        marginTop:'8%'
+        
+    },
+    categorytitle:{
+        fontSize:22,
+        fontFamily:'Avenir'
+    },
+    categorysubtitle:{
+        fontSize:14,
+        fontWeight:'500',
+        fontFamily:'Avenir',
+        lineHeight:30,
+        color:'#2D2D2D'
+    },
+    categories:{
+        flexDirection:'row',
+        width:'100%',
+        justifyContent:'space-between',
+        padding:30
+    },
     
+    searchinput:{
+        color:'rgba(45,45,45,0.4)',
+        fontFamily:'Avenir',
+        fontSize:18,
+    },
+    search:{
+        backgroundColor:'#EAEAF3',
+        width:'85%',
+        flexDirection:'row',
+        gap:20,
+        color:'#fff',
+        alignItems:'center',
+        justifyContent:'flex-start',
+        marginTop:50,
+        marginLeft:30, 
+        marginRight:30, 
+        padding:15,
+        borderRadius:12
+    },
+    h1:{
+        fontFamily:'Avenir',
+        fontSize:20,
+        fontWeight:'400',
+        lineHeight:30,marginTop:80
+    }, 
   container: {
     display: 'flex',
     backgroundColor: '#F4F4FA',

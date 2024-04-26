@@ -11,9 +11,9 @@ export default function Notification() {
   const navigation = useNavigation();
   const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
   if (!fontsLoaded) {
     return null; 
@@ -22,7 +22,7 @@ export default function Notification() {
     <><View style={styles.container}>
           <View style={styles.header}>
               <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Home' as never)}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Notifications</Text>
           </View>

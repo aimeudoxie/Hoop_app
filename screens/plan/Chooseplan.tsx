@@ -10,9 +10,9 @@ export default function ChoosePlan() {
   const navigation = useNavigation();
   const [selectedValue, setSelectedValue] = useState('option1');
   const [fontsLoaded] = useFontsExpo({
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
 
   if (!fontsLoaded) {
@@ -24,14 +24,14 @@ export default function ChoosePlan() {
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('UpgradePro' as never)}>
-            <Image source={require('../assets/ArrowLeft.png')} />
+            <Image source={require('../../assets/ArrowLeft.png')} />
           </TouchableOpacity>
           <Text style={styles.text}>Upgrade</Text>
         </View>
         <LinearGradient
           colors={['rgba(45, 45, 45, 0.1)', 'rgba(45, 45, 45, 0.1)', 'rgba(45, 45, 45, 0)']}
           style={styles.ellipse}>
-          <Image source={require('../assets/Stars.png')} />
+          <Image source={require('../../assets/Stars.png')} />
         </LinearGradient>
 
         <TouchableOpacity style={selectedValue === 'option1' ? styles.periodcontainerSelected : styles.periodcontainer}>

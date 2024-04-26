@@ -10,9 +10,9 @@ export default function TrackingPark() {
     
   const navigation = useNavigation();
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -20,15 +20,15 @@ export default function TrackingPark() {
     return(
         <>
         <View style={styles.container}>
-            <ImageBackground source={require('../assets/maps.png')} style={styles.imageBackground}>
+            <ImageBackground source={require('../../assets/maps.png')} style={styles.imageBackground}>
             <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.navigate('DetailParking' as never)} style={styles.back}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               
           </View>
           <View style={{width:'100%',alignItems:'flex-end',height:'40%',justifyContent:'flex-start'}}>
-            <Image source={require('../assets/Locationline.png')} style={{marginTop:'1%',marginRight:'25%'}}></Image>
+            <Image source={require('../../assets/Locationline.png')} style={{marginTop:'1%',marginRight:'25%'}}></Image>
             <View style={{borderWidth: 2,borderRadius: 1,borderColor: '#000',width:18, transform: [{ rotate: '90deg' }],marginRight:'23%',marginTop:'2%' }}></View>
             <View  style={{borderWidth: 2,borderRadius: 1,borderColor: '#000',width:72,marginRight:'25%',marginTop:'1%',transform: [{ rotate: '-0.84deg' }]}}></View>
             <View  style={{borderWidth: 2,borderRadius: 1,borderColor: '#000', width:232, transform: [{ rotate: '-82deg' }],marginRight:'18%',marginTop:'27%' }}></View>
@@ -40,14 +40,14 @@ export default function TrackingPark() {
             <Text style={{fontFamily:'Avenir',color:'rgba(45,45,45,0.4)',fontSize:12}}>Your Destination Address</Text>
 
             <View style={{flexDirection:'row',gap:10}}>
-            <Image source={require('../assets/Locationpin2.png')}/>
+            <Image source={require('../../assets/Locationpin2.png')}/>
             <Text style={{fontFamily:'Avenirroman',color:'rgba(45,45,45,1)',fontSize:14}}>123 Dhaka Street</Text>
             </View>
 
             </View>
 
             <View style={styles.duration}>
-            <Image source={require('../assets/Time Circle.png')} style={{width:18,height:18}}></Image>
+            <Image source={require('../../assets/Time Circle.png')} style={{width:18,height:18}}></Image>
             <Text style={{fontFamily:'Avenir',color:'#F43939',fontSize:12}}>7 minutes</Text>
             </View>
 
@@ -60,7 +60,7 @@ export default function TrackingPark() {
             <Text style={{fontFamily:'Avenir',color:'rgba(45,45,45,0.4)',fontSize:12}}>Your Destination Address</Text>
 
             <View style={{flexDirection:'row',gap:10}}>
-            <Image source={require('../assets/Locationpin2.png')}/>
+            <Image source={require('../../assets/Locationpin2.png')}/>
             <Text style={{fontFamily:'Avenirroman',color:'rgba(45,45,45,1)',fontSize:14}}>123 Dhaka Street</Text>
             </View>
 
@@ -68,7 +68,7 @@ export default function TrackingPark() {
             </View>
 
             <View style={styles.btncontainer}>
-            <View style={styles.attention}><Image source={require('../assets/Infocircle.png')}></Image></View>
+            <View style={styles.attention}><Image source={require('../../assets/Infocircle.png')}></Image></View>
             <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('ParkingRoute' as never)}><Text style={{fontFamily:'Avenir',color:'#fff',fontSize:16}} >Start Now</Text></TouchableOpacity>
           </View>
           </View>

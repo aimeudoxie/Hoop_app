@@ -13,9 +13,9 @@ import { useNavigation } from '@react-navigation/native';
 export default function UpgradePro() {
 const navigation = useNavigation();
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
   if (!fontsLoaded) {
     return null; 
@@ -24,7 +24,7 @@ const navigation = useNavigation();
     <><View style={styles.container}>
           <View style={styles.header}>
               <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('Profile' as never)}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Upgrade</Text>
           </View>
@@ -35,22 +35,22 @@ const navigation = useNavigation();
             <View style={styles.procontainer}>
                 <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Free</Text>
                 <View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Unlimited Feature</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Discounts every reservation</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
                 </View>
@@ -58,22 +58,22 @@ const navigation = useNavigation();
             <View style={styles.procontainer}>
                 <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Advanced</Text>
                 <View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Unlimited Feature</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Discounts every reservation</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
                 </View>
@@ -81,22 +81,22 @@ const navigation = useNavigation();
             <View style={styles.procontainer}>
                 <Text style={{fontSize:24,fontFamily:'Avenirroman',textAlign:'center',marginTop:'-15%'}}>Pro</Text>
                 <View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Unlimited Feature</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>Discounts every reservation</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
-                <View style={styles.profeatures}><Image source={require('../assets/Tick Square.png')} style={{height:'80%'}}></Image>
+                <View style={styles.profeatures}><Image source={require('../../assets/Tick Square.png')} style={{height:'80%'}}></Image>
                 <Text style={{fontFamily:'Avenir',fontSize:16}}>All include</Text>
                 </View>
                 </View>

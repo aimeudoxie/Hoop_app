@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground,Image,TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useFonts as useFontsExpo } from 'expo-font';
 import { useNavigation } from '@react-navigation/native';
-import { useUserContext } from '../contexts/userContext';
-import { account } from '../Appwrite/appwrite';
+import { useUserContext } from '../../contexts/userContext';
+import { account } from '../../Appwrite/appwrite';
 
 export default function Profile() {
   const { user} = useUserContext(); 
   const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -34,12 +34,12 @@ export default function Profile() {
     <View style={styles.container}>
       <View style={styles.header}>
         <ImageBackground
-          source={require('../assets/triangles.png')}
+          source={require('../../assets/triangles.png')}
           style={styles.imageBackground}
         >
             <Text style={{color:'#fff',fontFamily:'Avenir',textAlign:'center',top:'25%',fontSize:20}}>Profile</Text>
             <View style={styles.title}>
-                <Image source={require('../assets/profile.png')}>
+                <Image source={require('../../assets/profile.png')}>
 
                 </Image>
                 <View style={{flex:1}}>
@@ -47,7 +47,7 @@ export default function Profile() {
         <Text style={styles.h1}>{user?.name}</Text>
         </View>
         <TouchableOpacity style={styles.notification}  onPress={handleLogout}>
-            <Image source={require('../assets/Logout.png')}/>
+            <Image source={require('../../assets/Logout.png')}/>
         </TouchableOpacity>
         </View>
        
@@ -58,53 +58,53 @@ export default function Profile() {
         <View>
         <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('EditProfile' as never)}>
                 <Image
-                source={require('../assets/Profileicon.png')}>
+                source={require('../../assets/Profileicon.png')}>
                 </Image>
                 <Text style={styles.text}>Profile</Text>
                 <Image
-                source={require('../assets/rightarrow.png')}>
+                source={require('../../assets/rightarrow.png')}>
                 </Image>
                 </TouchableOpacity>  
                 <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('UpgradePro' as never)}>
                 <Image
-                source={require('../assets/Discount.png')}>
+                source={require('../../assets/Discount.png')}>
                 </Image>
                 <Text style={styles.text}>Go Pro</Text>
                 <Image
-                source={require('../assets/rightarrow.png')}>
+                source={require('../../assets/rightarrow.png')}>
                 </Image>
                 </TouchableOpacity> 
                 <View style={styles.row}>
                 <Image
-                source={require('../assets/Document.png')}>
+                source={require('../../assets/Document.png')}>
                 </Image>
                 <Text style={styles.text}>Terms & Conditions</Text>
                 <Image
-                source={require('../assets/rightarrow.png')}>
+                source={require('../../assets/rightarrow.png')}>
                 </Image>
                 </View> 
                 <View style={styles.row}>
                 <Image
-                source={require('../assets/question-circle.png')}>
+                source={require('../../assets/question-circle.png')}>
                 </Image>
                 <Text style={styles.text}>FAQ</Text>
                 <Image
-                source={require('../assets/rightarrow.png')}>
+                source={require('../../assets/rightarrow.png')}>
                 </Image>
                 </View> 
                 <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('EditProfile' as never)}>
                 <Image
-                source={require('../assets/Setting.png')}>
+                source={require('../../assets/Setting.png')}>
                 </Image>
                 <Text style={styles.text}>Settings</Text>
                 <Image
-                source={require('../assets/rightarrow.png')}>
+                source={require('../../assets/rightarrow.png')}>
                 </Image>
                 </TouchableOpacity>   
                 </View>
 
                 <TouchableOpacity style={styles.button}>
-        <Image source={require('../assets/headphone.png')} />
+        <Image source={require('../../assets/headphone.png')} />
         <Text style={styles.buttontext}> How can we help you?</Text>
       </TouchableOpacity > 
       <Text style={{color:'rgba(45,45,45,0.4)',fontSize:12}}>Parking v.1</Text>  

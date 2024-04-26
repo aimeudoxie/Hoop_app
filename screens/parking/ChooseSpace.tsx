@@ -8,7 +8,7 @@ import React from "react";
 
 import { useFonts as useFontsExpo } from 'expo-font';
 import { faClockFour } from "@fortawesome/free-regular-svg-icons";
-import ButtonWithProps from "../aesthetics/buttonWithProps";
+import ButtonWithProps from "../../aesthetics/buttonWithProps";
 
 const ChooseSpace: React.FC = () => {
     
@@ -16,9 +16,9 @@ const ChooseSpace: React.FC = () => {
     const navigation = useNavigation();
 
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -52,7 +52,7 @@ const ChooseSpace: React.FC = () => {
                     </View>
                 </View>
             </ScrollView>
-           <Image source={require('../assets/map3.png')} style={{width:'100%',height:'65%',resizeMode: 'cover', }}>
+           <Image source={require('../../assets/map3.png')} style={{width:'100%',height:'65%',resizeMode: 'cover', }}>
 
            </Image>
 

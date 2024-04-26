@@ -11,9 +11,9 @@ export default function DetailHistory() {
     const navigation = useNavigation();
   const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
   });
   if (!fontsLoaded) {
     return null; 
@@ -22,14 +22,14 @@ export default function DetailHistory() {
     <><View style={styles.container}>
           <View style={styles.header}>
               <TouchableOpacity style={styles.back} onPress={() => navigation.navigate('History' as never)}>
-                  <Image source={require('../assets/ArrowLeft.png')} />
+                  <Image source={require('../../assets/ArrowLeft.png')} />
               </TouchableOpacity>
               <Text style={styles.text}>Detail History</Text>
           </View>
           <View style={{ top: '5%' }}>
-              <Image source={require('../assets/image4.png')} style={{ width: 315, height: 193 }} />
+              <Image source={require('../../assets/image4.png')} style={{ width: 315, height: 193 }} />
               <View style={styles.location}>
-                  <Image source={require('../assets/location.png')} />
+                  <Image source={require('../../assets/location.png')} />
               </View>
           </View>
           <View style={{ top: '15%' }}>
@@ -38,11 +38,11 @@ export default function DetailHistory() {
           </View>
           <View style={styles.time}>
               <View style={{ flexDirection: 'row', gap: 5,backgroundColor:'#FFF3F3',padding:5,borderRadius:5 }}>
-                  <Image source={require('../assets/LocationPIN.png')} style={{ width: 18, height: 18 }}></Image>
+                  <Image source={require('../../assets/LocationPIN.png')} style={{ width: 18, height: 18 }}></Image>
                   <Text style={{ color: '#F43939', fontFamily: 'Avenirroman', fontSize: 14, }}>500 m away</Text>
               </View>
               <View style={{ flexDirection: 'row', gap: 5,backgroundColor:'#FFF3F3',padding:5,borderRadius:5 }}>
-                  <Image source={require('../assets/Time Circle.png')} style={{ width: 18, height: 18 }}></Image>
+                  <Image source={require('../../assets/Time Circle.png')} style={{ width: 18, height: 18 }}></Image>
                   <Text style={{ color: '#F43939', fontFamily: 'Avenirroman', fontSize: 14 }}>7 mins</Text>
               </View>
           </View>

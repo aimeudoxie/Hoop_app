@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as LocalAuthentication from "expo-local-authentication"
 import React, { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
-import ButtonWithProps from "../aesthetics/buttonWithProps";
+import ButtonWithProps from "../../aesthetics/buttonWithProps";
 import { faCommentDots, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 
@@ -17,9 +17,9 @@ const PaymentSuccess: React.FC = () => {
     
     const navigation = useNavigation();
     const [fontsLoaded] = useFonts({
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
     });
     if (!fontsLoaded) return null;
     const screenWidth = Dimensions.get("screen").width;
@@ -35,7 +35,7 @@ const PaymentSuccess: React.FC = () => {
                     }
                 }
             >
-                <Image source={require("../assets/paymentsuccess.png")} style={{ width: '90%', height: 300, resizeMode: 'contain', marginVertical: 30 }} />
+                <Image source={require("../../assets/paymentsuccess.png")} style={{ width: '90%', height: 300, resizeMode: 'contain', marginVertical: 30 }} />
                 <View style={{ flexDirection: 'row', gap: 40, alignItems: "flex-start", marginTop: 30, marginBottom: 20, }}>
                     <Text style={{ fontFamily: 'Avenir', fontSize: 25 }}>Payment Successful</Text>
                 </View>

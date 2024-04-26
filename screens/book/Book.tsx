@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
-import ButtonWithProps from "../aesthetics/buttonWithProps";
+import ButtonWithProps from "../../aesthetics/buttonWithProps";
 import { useFonts as useFontsExpo } from 'expo-font';
 import {LinearGradient} from "expo-linear-gradient"
 const Book: React.FC = () => {
     const navigation = useNavigation();
 
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -22,7 +22,7 @@ const Book: React.FC = () => {
     return (
         
         <SafeAreaView style={{ flex: 1, marginTop: 20, alignItems: 'center', backgroundColor:'#F4F4FA', width:'100%' }}>
-<ImageBackground source={require('../assets/Book.png')} style={styles.imageBackground}>
+<ImageBackground source={require('../../assets/Book.png')} style={styles.imageBackground}>
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'flex-start', gap: 50, marginLeft: 50, alignItems: "flex-start", marginTop: 50, marginBottom: 30}}>
                 <Pressable style={styles.back} onPress={() => navigation.goBack()}>
                     <FontAwesomeIcon icon={faAngleLeft} />
@@ -46,28 +46,28 @@ const Book: React.FC = () => {
                     <View style={{gap:10}}>
 
                         <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
-                    <Image  source={require("../assets/image6.png")}/>
+                    <Image  source={require("../../assets/image6.png")}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
 
-                    <Image   source={require("../assets/image7.png")}/>
+                    <Image   source={require("../../assets/image7.png")}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
 
-                    <Image   source={require("../assets/image8.png")}/>
+                    <Image   source={require("../../assets/image8.png")}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
 
 
-                    <Image  source={require("../assets/image6.png")}/>
+                    <Image  source={require("../../assets/image6.png")}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
 
-                    <Image  source={require("../assets/image7.png")}/>
+                    <Image  source={require("../../assets/image7.png")}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{backgroundColor:'#F4F4FA',alignItems:'center',justifyContent:'center',width:82,height:82,borderRadius:15}}>                
 
-                    <Image source={require("../assets/image8.png")}/>
+                    <Image source={require("../../assets/image8.png")}/>
                     </TouchableOpacity>
 
                     </View>

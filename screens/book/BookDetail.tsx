@@ -5,16 +5,16 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useFonts } from "expo-font";
 import { faClockFour } from "@fortawesome/free-regular-svg-icons";
-import ButtonWithProps from "../aesthetics/buttonWithProps";
+import ButtonWithProps from "../../aesthetics/buttonWithProps";
 import {LinearGradient} from "expo-linear-gradient"
 import { useFonts as useFontsExpo } from 'expo-font';
 
 const BookDetail: React.FC = () => {
     const navigation = useNavigation();
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -31,7 +31,7 @@ const BookDetail: React.FC = () => {
             </View>
             <View style={{gap:30}}>
                 <View>
-                    <Image source={require("../assets/image10.png")} style={{ width: 300, height: 200, resizeMode: 'contain' }} />
+                    <Image source={require("../../assets/image10.png")} style={{ width: 300, height: 200, resizeMode: 'contain' }} />
                     <View style={{
                         position: 'relative', left: 125, bottom: 40,
                          padding: 8, borderRadius: 50, width: 50, height: 50, justifyContent: 'center', alignItems: 'center'
@@ -53,7 +53,7 @@ const BookDetail: React.FC = () => {
 
                 <View style={{height:126,width:145,borderRadius:20,backgroundColor:"#FFFFFF",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:10}}>
                     <View style={{backgroundColor:"#FFF3F3",height:26,width:38,borderRadius:5,justifyContent:"center",alignItems:"center"}}>
-                    <Image source={require("../assets/LocationPIN.png")}></Image>
+                    <Image source={require("../../assets/LocationPIN.png")}></Image>
                     </View>
                     <Text style={{fontSize:18,fontFamily:"Avenir"}}>A-6</Text>
                     <Text style={{fontSize:14,fontFamily:"Avenir"}}>Parking Place</Text>
@@ -62,7 +62,7 @@ const BookDetail: React.FC = () => {
 
                 <View style={{height:126,width:145,borderRadius:20,backgroundColor:"#FFFFFF",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:10}}>
                     <View style={{backgroundColor:"#FFF3F3",height:26,width:38,borderRadius:5,justifyContent:"center",alignItems:"center"}}>
-                    <Image source={require("../assets/Time Circle.png")}></Image>
+                    <Image source={require("../../assets/Time Circle.png")}></Image>
                     </View>
                     <Text style={{fontSize:18,fontFamily:"Avenir"}}>4 h</Text>
                     <Text style={{fontSize:14,fontFamily:"Avenir"}}>Time</Text>
@@ -75,7 +75,7 @@ const BookDetail: React.FC = () => {
 
           <View style={{display:"flex",flexDirection:"row",gap:10 ,backgroundColor:"#FFFFFF",borderRadius:15,justifyContent:"center",alignItems:"center"}}>
                     <View style ={{height:61,width:55}}>
-                    <Image style={{position:"relative",marginTop:17}} source ={require("../assets/Activity.png")}></Image>
+                    <Image style={{position:"relative",marginTop:17}} source ={require("../../assets/Activity.png")}></Image>
                     </View>
                     <Text style ={{fontSize:18,fontFamily:"Avenir"}}>Include Insurance</Text>
                     <Text  style ={{fontSize:16,fontFamily:"Avenir"}}>$5/h</Text>

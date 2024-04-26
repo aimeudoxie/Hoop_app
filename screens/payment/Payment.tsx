@@ -1,13 +1,13 @@
-import LayoutHeader from "../aesthetics/header";
-import { Text } from "../aesthetics/design";
-import Colors from "../aesthetics/Colors";
-import Sizes from "../aesthetics/Sizes";
+import LayoutHeader from "../../aesthetics/header";
+import { Text } from "../../aesthetics/design";
+import Colors from "../../aesthetics/Colors";
+import Sizes from "../../aesthetics/Sizes";
 import { useFonts as useFontsExpo } from 'expo-font';
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import { TextInput } from "../aesthetics/inputs";
+import { TextInput } from "../../aesthetics/inputs";
 
 
  
@@ -15,9 +15,9 @@ export default function Payment() {
   const navigation = useNavigation();
   const [text, setText] = useState('');
   const [fontsLoaded] = useFontsExpo({ 
-    'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-    'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-    'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf') ,
+    'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+    'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+    'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf') ,
   });
   if (!fontsLoaded) {
     return null; 
@@ -34,16 +34,16 @@ export default function Payment() {
       </View>
       <View style={styles.card}>
         <View style={styles.images}>
-          <Image source={require("../assets/mall3.png")} />
+          <Image source={require("../../assets/mall3.png")} />
         </View>
         <Text style={styles.title}>Graha Mall</Text>
         <Text style={styles.bodyMessage}>123 Dhaka Street</Text>
         <View style={styles.icons}>
           <Text style={styles.background}>
-            <Image source={require("../assets/location1.png")} /> A-6
+            <Image source={require("../../assets/location1.png")} /> A-6
           </Text>
           <Text style={styles.background}>
-            <Image source={require("../assets/clock.png")} /> 4 hours
+            <Image source={require("../../assets/clock.png")} /> 4 hours
           </Text>
         </View>
       </View>

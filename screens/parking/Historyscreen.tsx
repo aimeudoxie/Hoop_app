@@ -9,9 +9,9 @@ export default function Explore() {
     const navigation = useNavigation();
     const [text, setText] = useState('');
     const [fontsLoaded] = useFontsExpo({ 
-        'Avenir': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
-        'Avenirbold': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
-        'Avenirroman': require('../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
+        'Avenir': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Book.otf'),
+        'Avenirbold': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Black.otf'),
+        'Avenirroman': require('../../assets/Avenir-Font/avenir_ff/AvenirLTStd-Roman.otf'),
       });
       if (!fontsLoaded) {
         return null; 
@@ -21,7 +21,7 @@ export default function Explore() {
         <Text style={styles.h1}>History</Text>
         <View style={styles.header}>
         <View style={styles.search}>
-        <Image source={require('../assets/Search2.png')}/>
+        <Image source={require('../../assets/Search2.png')}/>
         <TextInput  
         placeholder='Search'
         onChangeText={newText => setText(newText)}
@@ -30,14 +30,14 @@ export default function Explore() {
         />
         </View>
         <View style={styles.filter}>
-        <Image source={require('../assets/Filter 3.png')}/>
+        <Image source={require('../../assets/Filter 3.png')}/>
         </View>
         </View>
     
         <Text style={styles.subtitle}>Recently</Text>
         <TouchableOpacity style={styles.Spaces}  onPress={() => navigation.navigate('DetailHistory' as never)}>
             <Image 
-            source={require('../assets/image1.png')} style={styles.spaceimage}>
+            source={require('../../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
                  <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
@@ -45,11 +45,11 @@ export default function Explore() {
                     
                     <View style={styles.spacespec}>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/LocationPIN.png')}></Image>
+                            <Image source={require('../../assets/LocationPIN.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>A-6</Text>
                             </View>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/Time Circle.png')}></Image>
+                            <Image source={require('../../assets/Time Circle.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>4 hours</Text>
                             </View>
                         </View>
@@ -61,7 +61,7 @@ export default function Explore() {
         </TouchableOpacity>
         <TouchableOpacity style={styles.Spaces}  onPress={() => navigation.navigate('DetailHistory' as never)}>
             <Image 
-            source={require('../assets/image1.png')} style={styles.spaceimage}>
+            source={require('../../assets/image1.png')} style={styles.spaceimage}>
                  </Image>
                  <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
@@ -69,11 +69,11 @@ export default function Explore() {
                     
                     <View style={styles.spacespec}>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/LocationPIN.png')}></Image>
+                            <Image source={require('../../assets/LocationPIN.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>A-6</Text>
                             </View>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/Time Circle.png')}></Image>
+                            <Image source={require('../../assets/Time Circle.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>4 hours</Text>
                             </View>
                         </View>
@@ -86,7 +86,7 @@ export default function Explore() {
         <Text style={styles.subtitle}>This Week</Text>
         <View style={styles.Spaces}>
             <Image 
-            source={require('../assets/image2.png')} style={styles.spaceimage}>
+            source={require('../../assets/image2.png')} style={styles.spaceimage}>
                  </Image>
                 <View style={{padding:10,flex:1}}>
                     <Text style={styles.spacetitle}>Graha Mall</Text>
@@ -95,11 +95,11 @@ export default function Explore() {
                         
                         <View style={styles.spacespec}>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/LocationPIN.png')}></Image>
+                            <Image source={require('../../assets/LocationPIN.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>A-6</Text>
                             </View>
                             <View style={{flexDirection:'row',gap:5}}>
-                            <Image source={require('../assets/Time Circle.png')}></Image>
+                            <Image source={require('../../assets/Time Circle.png')}></Image>
                             <Text style={{color:'#F43939',fontFamily:'Avenirroman',fontSize:12}}>4 hours</Text>
                             </View>
                         </View>
